@@ -53,5 +53,5 @@ xset b off &
 nitrogen --restore &
 clight &
 setxkbmap us &
-picom -f &
+picom -f --config ~/.config/picom.conf &
 exec bspwm

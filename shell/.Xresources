@@ -1,4 +1,4 @@
-xterm*faceName: Fira Code Nerd Font Regular
+xterm*faceName: FiraCode Nerd Font Mono
 xterm*faceSize: 13
 
 xterm*loginshell: true
