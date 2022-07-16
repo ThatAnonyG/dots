@@ -1,5 +1,5 @@
 xterm*faceName: FiraCode Nerd Font Mono
-xterm*faceSize: 13
+xterm*faceSize: 14
 
 xterm*loginshell: true
 xterm*savelines: 10000

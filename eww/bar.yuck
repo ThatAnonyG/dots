@@ -1,0 +1,84 @@
+(defvar desktops '["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]')
+(defpoll volume :interval "1s" "scripts/getvol")
+(defpoll brightness :interval "1s" "scripts/getbrightness")
+(defpoll curr_desktop :interval "1s" "bspc query -D -d focused --names")
+
+(
+  defwidget workspaces [] (
+    box :class "workspaces"
+        :orientation "h"
+		    :space-evenly true
+		    :halign "start"
+		    :spacing 10
+      (
+        for d in desktops
+			    (
+            button
+              :class {d == curr_desktop ? "active" : "non-active"}
+              :onclick "bspc desktop --focus ${d}"
+              {d == curr_desktop ? "" : ""}
+          )
+      )
+  )
+)
+
+(
+  defwidget musicbar [] (
+    box :class "spotify"
+        :orientation "h"
+        :halign "center"
+      "<PLAYER>"
+  )
+)
+
+(
+  defwidget controlcenter [] (
+    box :class "control-center"
+        :orientation "h"
+        :halign "end"
+      (box :class "brightness" ' ${brightness}')
+      (
+        box 
+          :class "battery-capacity" 
+        '${EWW_BATTERY["BAT1"].status == "Charging" ? "" : ""}  ${EWW_BATTERY["BAT1"].capacity}%'
+      )
+      (
+        box :orientation "h" :space-evenly false
+          (box :class "vol-label" "")
+          (
+            scale
+              :class "vol-slider"
+              :min 0
+              :max 101
+              :active true
+              :value volume
+              :onchange "amixer -D pulse sset Master {}%"
+          )
+          (box :class "curr-vol" "${volume}%")
+      )
+  )
+)
+
+(
+	defwidget bar [] (
+    centerbox :orientation "h"
+			(workspaces)
+      (musicbar)
+      (controlcenter)
+	)
+)
+
+(
+	defwindow bar
+		:monitor 0
+		:windowtype "dock"
+		:geometry (geometry
+			:x "0%"
+			:y "-12px"
+			:width "1896px"
+			:height "55px"
+			:anchor "bottom center"
+		)
+		:reserve (struts :side "bottom" :distance "67px")
+	(bar)
+)

@@ -6,6 +6,10 @@
 super + Return
 	xterm
 
+# floating terminal emulator
+alt + shift + t
+	xterm -class XTermFloat
+
 # program launcher
 super + @space
 	dmenu_run
@@ -119,3 +123,7 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+XF86MonBrightness{Up,Down}
+  brightnessctl s 10{+,-}
+

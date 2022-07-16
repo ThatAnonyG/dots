@@ -50,6 +50,8 @@ fi
 
 xsetroot -cursor_name left_ptr &
 xset b off &
+eww daemon &
+eww open bar &
 nitrogen --restore &
 clight &
 setxkbmap us &

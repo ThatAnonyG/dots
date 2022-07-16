@@ -1,0 +1,38 @@
+set nocompatible
+
+filetype on
+filetype plugin on
+filetype indent on
+
+syntax on
+
+set number
+set cursorline
+
+set tabstop=2
+set expandtab
+set nowrap
+set incsearch
+
+set showmatch
+set showcmd
+set showmode
+set scrolloff=10
+set nobackup
+set hlsearch
+set history=1000
+
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.jpg,*.png,*.gif
+
+call plug#begin('~/.vim/plugged')
+Plug 'arcticicestudio/nord-vim'
+Plug 'elkowar/yuck.vim'
+call plug#end()
+
+colorscheme nord
+
+set statusline=
+set statusline+=\ %F\ %M\ %Y\ %R
+
