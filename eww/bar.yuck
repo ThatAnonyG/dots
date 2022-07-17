@@ -1,7 +1,8 @@
 (defvar desktops '["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]')
-(defpoll volume :interval "1s" "scripts/getvol")
-(defpoll brightness :interval "1s" "scripts/getbrightness")
 (defpoll curr_desktop :interval "1s" "bspc query -D -d focused --names")
+(defpoll brightness :interval "1s" "scripts/getbrightness")
+(defpoll battery :interval "1s" "scripts/getbattery")
+(defpoll volume :interval "1s" "scripts/getvol")
 
 (
   defwidget workspaces [] (
@@ -36,11 +37,12 @@
     box :class "control-center"
         :orientation "h"
         :halign "end"
+        :space-evenly false
+        :spacing 25
       (box :class "brightness" ' ${brightness}')
       (
-        box 
-          :class "battery-capacity" 
-        '${EWW_BATTERY["BAT1"].status == "Charging" ? "" : ""}  ${EWW_BATTERY["BAT1"].capacity}%'
+        box :class {battery.class}
+          '${battery.status == "Charging" ? "" : ""}  ${battery.cap}%'
       )
       (
         box :orientation "h" :space-evenly false

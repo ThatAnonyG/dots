@@ -27,12 +27,17 @@
 
 .control-center {
   margin-right: 30px;
+  min-width: 20rem;
 }
 .control-center .brightness {
   font-size: 16px;
 }
-.control-center .battery-capacity {
+.control-center .battery {
   font-size: 16px;
+}
+.control-center .battery-low {
+  font-size: 16px;
+  color: #bf616a;
 }
 .control-center .vol-label {
   font-size: 26px;
