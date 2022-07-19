@@ -1,38 +1,107 @@
 set nocompatible
 
+" File type settings --- {{{
+
+" Detect the file type of the current file
 filetype on
+" Enable plugins and load file type specific plugins
 filetype plugin on
+" Load indent file for the current file type
 filetype indent on
 
+" }}}
+
+" Editor settings --- {{{
+
+" Enable syntax highlighting
 syntax on
-
+" Activate line numbers
 set number
+" Highlight the line cursor is on
 set cursorline
-
+" Set tab length
 set tabstop=2
+" Make tabs use spaces
 set expandtab
+" Don't wrap long lines
 set nowrap
+" Highlight characters as I type in search string
 set incsearch
-
+" Show matching words during a search
 set showmatch
+" Partially match commands while typing
 set showcmd
+" Show the current active vim mode
 set showmode
+" Limit scroll limit to N lines
 set scrolloff=10
+" Do not save backup files
 set nobackup
+" Highlight search results
 set hlsearch
+" Set command history
 set history=1000
 
+set backspace=eol,start,indent
+
+" }}}
+
+" Autocomplete Settings --- {{{
+
+" Enable auto completion on TAB
 set wildmenu
+" Enable Bash shell like behaviour
 set wildmode=list:longest
+" Ignore files with these extensions
 set wildignore=*.jpg,*.png,*.gif
 
+" }}}
+
+" Plugins Related --- {{{
+
 call plug#begin('~/.vim/plugged')
+
+" Nord Theme
 Plug 'arcticicestudio/nord-vim'
+
+" Language features for .yuck files
 Plug 'elkowar/yuck.vim'
+
+" Project tree visualizer
+Plug 'lambdalisue/fern.vim'
+
+" Amazing file searching
+Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 
+" Set editor color scheme
 colorscheme nord
 
+" }}}
+
+" Custom Vimscript --- {{{
+
+" Enable folding
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" }}}
+
+" Status Line Config --- {{{
+
+" Clear the status line
 set statusline=
+" Left side view
 set statusline+=\ %F\ %M\ %Y\ %R
+" Add divider between
+set statusline+=%=
+" Right side view
+set statusline+=row:\ %l\ col:\ %c
+" Show the status line at
+set laststatus=2
+
+" }}}
 
