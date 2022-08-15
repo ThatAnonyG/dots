@@ -87,6 +87,9 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --producti
 " COC (Autocomplete and Lint)
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
+" Bracket pair colors
+Plug 'junegunn/rainbow_parentheses.vim'
+
 call plug#end()
 
 " Set editor color scheme
@@ -171,6 +174,15 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+
+" Bracker pair color configs
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+
+augroup RainbowBracketGroup
+  autocmd!
+  autocmd FileType * RainbowParentheses
+augroup END
 
 " }}}
 
