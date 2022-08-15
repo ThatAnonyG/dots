@@ -51,6 +51,8 @@ set backspace=eol,start,indent
 set whichwrap=<,>,h,l,[,]
 " Enable auto indentation
 set autoindent
+" Set encoding
+set encoding=utf8
 
 " }}}
 
@@ -82,13 +84,32 @@ Plug 'lambdalisue/fern.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " The OG prettier
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'dense-analysis/ale'
 
 " COC (Autocomplete and Lint)
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Bracket pair colors
 Plug 'junegunn/rainbow_parentheses.vim'
+
+" Auto pairs for brackets and stuff
+Plug 'jiangmiao/auto-pairs'
+
+" Language Support
+Plug 'pangloss/vim-javascript'
+Plug 'elixir-editors/vim-elixir'
+
+" Language Server
+Plug 'neoclide/coc-tsserver', { 'do': 'yarn install && yarn prepare' }
+Plug 'elixir-lsp/coc-elixir', { 'do': 'yarn install && yarn build' }
+
+" Auto colors
+Plug 'lambdalisue/glyph-palette.vim'
+
+" Nice Icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
 call plug#end()
 
@@ -132,9 +153,7 @@ endfunction
 " Fern configuration
 let g:fern#disable_default_mappings = 1
 let g:fern#default_hidden = 1
-let g:fern#renderer#default#leaf_symbol = " "
-let g:fern#renderer#default#collapsed_symbol = " "
-let g:fern#renderer#default#expanded_symbol = " "
+let g:fern#renderer = 'nerdfont'
 
 noremap <silent> <Leader>f :Fern . -drawer -reveal=% -toggle -width=30<CR><C-w>=
 
@@ -182,6 +201,28 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 augroup RainbowBracketGroup
   autocmd!
   autocmd FileType * RainbowParentheses
+augroup END
+
+" Ale config
+let g:ale_fixers = {
+\ 'javascript': ['prettier'],
+\ 'css': ['prettier'],
+\ 'html': ['prettier'],
+\ 'elixir': ['mix_format']
+\ }
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
+
+" COC mappings
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <Leader>co :<C-u>CocList outline<CR>
+
+" Gylph Palette
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
 augroup END
 
 " }}}
