@@ -206,18 +206,25 @@ augroup END
 " Ale config
 let g:ale_fixers = {
 \ 'javascript': ['prettier'],
+\ 'json': ['prettier'],
 \ 'css': ['prettier'],
 \ 'html': ['prettier'],
 \ 'elixir': ['mix_format']
 \ }
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_linters_explicit = 1
 
-" COC mappings
+noremap <silent> <Leader>p :ALEFix<CR>
+
+" COC configuration
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <Leader>co :<C-u>CocList outline<CR>
+inoremap <silent><expr> <c-@> coc#refresh()
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " Gylph Palette
 augroup my-glyph-palette
