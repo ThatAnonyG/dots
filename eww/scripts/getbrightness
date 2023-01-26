@@ -1,3 +1,0 @@
-#!/bin/sh
-
-brightnessctl i | grep 'Current brightness' | awk -F'[()]' '{ printf $2 }' | head -1
