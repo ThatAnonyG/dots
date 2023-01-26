@@ -98,6 +98,7 @@ Plug 'jiangmiao/auto-pairs'
 " Language Support
 Plug 'pangloss/vim-javascript'
 Plug 'elixir-editors/vim-elixir'
+Plug 'fatih/vim-go'
 
 " Language Server
 Plug 'neoclide/coc-tsserver', { 'do': 'yarn install && yarn prepare' }
@@ -182,7 +183,7 @@ augroup FernGroup
 augroup END
 
 " Control-P config
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git'
 
 " Screw arrow keys
 noremap <Up> <NOP>
