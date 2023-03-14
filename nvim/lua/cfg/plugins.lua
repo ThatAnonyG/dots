@@ -37,6 +37,24 @@ lazy.setup({
 	"akinsho/bufferline.nvim", -- nice looking bufferline
 	"moll/vim-bbye", -- for bufferline
 	"akinsho/toggleterm.nvim", -- terminal in nvim
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			local notify = require("notify")
+			notify.setup({
+				stages = "fade_in_slide_out",
+				background = "FloatShadow",
+				timeout = 3000,
+			})
+			vim.notify = notify
+		end,
+	}, -- fancy notifications
+	"nvim-tree/nvim-web-devicons", -- cool icons
+	"nvim-lualine/lualine.nvim", -- cool status line
+	"ahmedkhalf/project.nvim", -- easily access projects
+	"lewis6991/impatient.nvim", -- improve load times
+	"lukas-reineke/indent-blankline.nvim", -- indentation lines
+	"goolord/alpha-nvim", -- startup dashboard
 
 	-- Themes
 	"joshdick/onedark.vim", -- onedark color scheme

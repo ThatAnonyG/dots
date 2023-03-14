@@ -29,6 +29,6 @@ vim.opt.scrolloff = 8 -- add 8 lines below cursor
 vim.opt.sidescrolloff = 8 -- add some space after the cursor
 vim.opt.iskeyword = "@,48-57,192-255" -- don't treat _ separated words as a single word when using d-w or d-b
 vim.opt.termguicolors = true -- enable wider range of colors
-vim.opt.shortmess:append "c" -- Short messages option
-vim.opt.whichwrap:append "h,l,<,>,[,]" -- cursor behavior
+vim.opt.shortmess:append("c") -- Short messages option
+vim.opt.whichwrap:append("h,l,<,>,[,]") -- cursor behavior
 
