@@ -30,8 +30,6 @@ lazy.setup({
 	-- Useful plugins
 	"nvim-lua/popup.nvim", -- popup stuff in nvim
 	"nvim-lua/plenary.nvim", -- utils lib used as a dependency
-	"windwp/nvim-autopairs", -- auto close brackets and quotes
-	"numToStr/Comment.nvim", -- comment stuff
 	"lewis6991/gitsigns.nvim", -- git support
 	"kyazdani42/nvim-tree.lua", -- file explorer
 	"akinsho/bufferline.nvim", -- nice looking bufferline
@@ -53,8 +51,10 @@ lazy.setup({
 	"nvim-lualine/lualine.nvim", -- cool status line
 	"ahmedkhalf/project.nvim", -- easily access projects
 	"lewis6991/impatient.nvim", -- improve load times
-	"lukas-reineke/indent-blankline.nvim", -- indentation lines
 	"goolord/alpha-nvim", -- startup dashboard
+	"MunifTanjim/nui.nvim", -- dependency for fine cmdline and searchbox
+	"VonHeikemen/fine-cmdline.nvim", -- floating cmdline
+	"VonHeikemen/searchbox.nvim", -- floating search bar
 
 	-- Themes
 	"joshdick/onedark.vim", -- onedark color scheme
@@ -83,8 +83,12 @@ lazy.setup({
 	"nvim-telescope/telescope.nvim", -- Telescope plugin
 	"nvim-telescope/telescope-media-files.nvim", -- Telescope extension to view media files
 
-	-- Treesitter
+	-- Codebase stuff
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, -- syntax highlighter
 	"p00f/nvim-ts-rainbow", -- rainbow brackets
 	"JoosepAlviste/nvim-ts-context-commentstring", -- context aware comments
+	"lukas-reineke/indent-blankline.nvim", -- indentation lines
+	"windwp/nvim-autopairs", -- auto close brackets and quotes
+	"numToStr/Comment.nvim", -- comment stuff
+	"github/copilot.vim", -- github copilot
 })

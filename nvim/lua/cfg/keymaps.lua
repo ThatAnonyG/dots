@@ -24,7 +24,7 @@ keymap("n", "<Leader>f", ":Format<CR>", opts)
 keymap(
 	"n",
 	"<Leader>t",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false, hidden = true }))<CR>",
 	opts
 )
 keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').git_branches()<CR>", opts)
@@ -36,6 +36,13 @@ keymap("n", "<Leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Close buffers
 keymap("n", "<C-w>", ":Bdelete!<CR>", opts)
+
+-- Open floating cmdline
+keymap("n", ":", "<cmd>FineCmdline<CR>", opts)
+
+-- Open search and replace
+keymap("n", "<leader>s", ":SearchBoxIncSearch<CR>", opts)
+keymap("n", "<leader>r", ":SearchBoxReplace<CR>", opts)
 
 -- INSERT MODE MAPPINGS --
 
@@ -57,6 +64,9 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "<S-j>", ":m '>+1<CR>gv-gv", opts)
 keymap("x", "<S-k>", ":m '<-2<CR>gv-gv", opts)
+
+-- Replace
+keymap("x", "<C-r>", ":SearchBoxReplace visual_mode=true<CR>", opts)
 
 -- TERMINAL MODE MAPPINGS --
 
