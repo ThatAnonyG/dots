@@ -221,27 +221,30 @@
 	<string>D1F1E3C1-5ACF-4A62-A33A-DCE0FBE7EFC1</string>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x19-0x60000-0x0</key>
+		<key>0x19-0x60000</key>
 		<dict>
 			<key>Action</key>
-			<integer>31</integer>
-			<key>Label</key>
-			<string></string>
+			<integer>39</integer>
 			<key>Text</key>
 			<string></string>
-			<key>Version</key>
-			<integer>0</integer>
 		</dict>
-		<key>0x9-0x40000-0x30</key>
+		<key>0x6a-0x100000-0x26</key>
 		<dict>
 			<key>Action</key>
-			<integer>30</integer>
+			<integer>38</integer>
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
-			<string></string>
+			<string>\&lt;C-j&gt;</string>
 			<key>Version</key>
 			<integer>1</integer>
+		</dict>
+		<key>0x9-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>32</integer>
+			<key>Text</key>
+			<string></string>
 		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>

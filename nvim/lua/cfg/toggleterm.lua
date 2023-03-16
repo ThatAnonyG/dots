@@ -5,7 +5,7 @@ end
 
 toggleterm.setup({
 	size = 20,
-	open_mapping = [[<C-\>]],
+	open_mapping = [[<Leader>tf]],
 	hide_numbers = true,
 	shade_filetypes = {},
 	shade_terminals = true,
@@ -43,4 +43,3 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
-

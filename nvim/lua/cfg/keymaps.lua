@@ -1,77 +1,52 @@
-local opts = { noremap = true, silent = true } -- general options
-local topts = { silent = true } -- terminal options
+local function build_opts(opts)
+	local default_opts = { noremap = true, silent = true }
+	for k, v in pairs(opts) do
+		default_opts[k] = v
+	end
+	return default_opts
+end
+
 local keymap = vim.api.nvim_set_keymap -- function alias
 
--- NORMAL MODE MAPPINGS --
+---------------------
+--- CTRL MAPPINGS ---
+---------------------
 
--- Window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Open file drawer
-keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
-
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Format document
-keymap("n", "<Leader>f", ":Format<CR>", opts)
-
--- Telescope
+keymap("i", "<C-j>", 'copilot#Accept("<CR>")', build_opts({ noremap = false, expr = true }))
 keymap(
-	"n",
-	"<Leader>t",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false, hidden = true }))<CR>",
-	opts
+	"i",
+	"<C-/",
+	'<cmd>lua require("Comment.api").toggle_current_linewise()<CR>',
+	build_opts({ desc = "Toggle comment" })
 )
-keymap("n", "<C-g>", "<cmd>lua require('telescope.builtin').git_branches()<CR>", opts)
-keymap("n", "<Leader>F", "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
+keymap("x", "<C-r>", ":SearchBoxReplace visual_mode=true<CR>", build_opts({ desc = "Replace in file" }))
 
--- Git stuff
-keymap("n", "<Leader>b", ":Gitsigns blame_line<CR>", opts)
-keymap("n", "<Leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
-
--- Close buffers
-keymap("n", "<C-w>", ":Bdelete!<CR>", opts)
-
--- Open floating cmdline
-keymap("n", ":", "<cmd>FineCmdline<CR>", opts)
-
--- Open search and replace
-keymap("n", "<leader>s", ":SearchBoxIncSearch<CR>", opts)
-keymap("n", "<leader>r", ":SearchBoxReplace<CR>", opts)
-
--- INSERT MODE MAPPINGS --
-
--- Set escape to 'jj'
-keymap("i", "jj", "<ESC>", opts)
-
--- Disable escape key completely
-keymap("i", "<ESC>", "<Nop>", opts)
-
--- VISUAL MODE MAPPINGS --
-
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
--- Do not replace copied text
-keymap("v", "p", '"_dP', opts)
+----------------------
+--- SHIFT MAPPINGS ---
+----------------------
 
 -- Move text up and down
-keymap("x", "<S-j>", ":m '>+1<CR>gv-gv", opts)
-keymap("x", "<S-k>", ":m '<-2<CR>gv-gv", opts)
+keymap("x", "<S-j>", ":m '>+1<CR>gv-gv", build_opts({ desc = "Move line down" }))
+keymap("x", "<S-k>", ":m '<-2<CR>gv-gv", build_opts({ desc = "Move line up" }))
 
--- Replace
-keymap("x", "<C-r>", ":SearchBoxReplace visual_mode=true<CR>", opts)
+-- Stay in indent mode
+keymap("v", "<", "<gv", build_opts({ desc = "Indent block to left" }))
+keymap("v", ">", ">gv", build_opts({ desc = "Indent block to right" }))
 
--- TERMINAL MODE MAPPINGS --
+-----------------------
+--- LEADER MAPPINGS ---
+-----------------------
 
--- Terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", topts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", topts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", topts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", topts)
+-- General mappings
+vim.cmd([[
+  autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
+]])
+keymap("n", "<Leader><Leader>", ":WhichKey<CR>", build_opts({ desc = "Whichkey menu" }))
+keymap("n", ":", "<cmd>FineCmdline<CR>", build_opts({ desc = "Floating Neovim cmdline" }))
+
+-- Do not replace copied text
+keymap("v", "p", '"_dP', build_opts({}))
+
+-- Escape insert mode
+keymap("i", "jj", "<ESC>", build_opts({}))
+keymap("i", "<ESC>", "<Nop>", build_opts({}))
