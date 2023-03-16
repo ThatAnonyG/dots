@@ -34,3 +34,12 @@ vim.opt.timeoutlen = 300 -- timeout length
 vim.opt.shortmess:append("c") -- Short messages option
 vim.opt.whichwrap:append("h,l,<,>,[,]") -- cursor behavior
 vim.g.copilot_no_tab_map = true -- disable tab mapping for copilot
+
+-- set startup dir
+local os = require("os")
+local path_to_desktop = os.getenv("USERPROFILE")
+local vim_enter_group = vim.api.nvim_create_augroup("vim_enter_group", { clear = true })
+vim.api.nvim_create_autocmd(
+	{ "VimEnter" },
+	{ pattern = "*", command = "cd " .. path_to_desktop, group = vim_enter_group }
+)

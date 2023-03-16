@@ -1,1 +1,1 @@
-vim.cmd[[ GuiFont CaskaydiaCove NF:h11 ]]
+vim.cmd([[ GuiFont CaskaydiaCove NF:h11 ]])
