@@ -33,5 +33,4 @@ vim.opt.timeout = true -- enable timeout
 vim.opt.timeoutlen = 300 -- timeout length
 vim.opt.shortmess:append("c") -- Short messages option
 vim.opt.whichwrap:append("h,l,<,>,[,]") -- cursor behavior
-
 vim.g.copilot_no_tab_map = true -- disable tab mapping for copilot

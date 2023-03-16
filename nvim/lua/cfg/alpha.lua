@@ -15,17 +15,20 @@ dashboard.section.header.val = {
 	[[   \|__|\|__|\|__|\|__| \|__|\|_______|\|__| \|__|\___/ /     ]],
 	[[                                                 \|___|/      ]],
 }
+
 dashboard.section.buttons.val = {
 	dashboard.button(
 		"f",
 		"  Find file",
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false, hidden = true }))<CR>"
+		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false"
+			.. (jit.os == "Windows" and "" or ", hidden = true")
+			.. " }))<CR>"
 	),
 	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
 	dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
 	dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-	dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
+	dashboard.button("c", "  Configuration", ":e " .. vim.fn.stdpath("config") .. "/init.lua <CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
