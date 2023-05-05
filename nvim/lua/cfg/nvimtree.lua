@@ -3,14 +3,20 @@ if not status_ok then
 	return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-	return
+local function on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  vim.keymap.set("n", "<CR>", api.node.open.tab, opts("Open File"))
+  vim.keymap.set("n", "h", api.node.open.edit, opts("Collapse"))
+  vim.keymap.set("n", "v", api.node.open.vertical, opts("Open in V-Split"))
 end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
 nvim_tree.setup({
+  on_attach = on_attach,
 	disable_netrw = true,
 	hijack_netrw = true,
 	open_on_tab = false,
@@ -41,14 +47,10 @@ nvim_tree.setup({
 	},
 	view = {
 		width = 30,
-		hide_root_folder = true,
 		side = "left",
 		mappings = {
 			custom_only = false,
 			list = {
-				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-				{ key = "h", cb = tree_cb("close_node") },
-				{ key = "v", cb = tree_cb("vsplit") },
 			},
 		},
 		number = false,
@@ -57,6 +59,7 @@ nvim_tree.setup({
 	renderer = {
 		highlight_git = true,
 		root_folder_modifier = ":t",
+    root_folder_label = false,
 		icons = {
 			show = {
 				file = true,
