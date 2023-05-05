@@ -228,6 +228,17 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x5c-0x100000-0x2a</key>
+		<dict>
+			<key>Action</key>
+			<integer>38</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string>\&lt;C-\\&gt;</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0x6a-0x100000-0x26</key>
 		<dict>
 			<key>Action</key>

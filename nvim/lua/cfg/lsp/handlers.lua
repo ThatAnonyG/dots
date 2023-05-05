@@ -13,7 +13,9 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = false,
+		virtual_text = {
+      prefix = "",
+    },
 		signs = {
 			active = icons,
 		},
@@ -72,7 +74,6 @@ local function lsp_keymaps(bufnr)
 			D = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
 			i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to implementation" },
 			r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Go to references" },
-			k = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show function info" },
 		},
 	}
 
@@ -93,6 +94,7 @@ local function lsp_keymaps(bufnr)
 			k = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", "Previous diagnostic" },
 			q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quick fix" },
       r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+			h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show function info" },
 		},
 	}
 	require("which-key").register(mappings, {

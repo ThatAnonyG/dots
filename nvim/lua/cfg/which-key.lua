@@ -64,8 +64,6 @@ local nmappings = {
 			"Open buffers",
 		},
 		f = { "<cmd>Format<CR>", "Format document" },
-		h = { "<cmd>bprevious<CR>", "Previous file in tab" },
-		l = { "<cmd>bnext<CR>", "Next file in tab" },
 		c = { "<cmd>w | Bdelete!<CR>", "Close file" },
 		q = { "<cmd>Bdelete!<CR>", "Close file (no save)" },
 	},
