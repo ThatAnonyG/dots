@@ -13,6 +13,7 @@ local servers = {
 	"jsonls",
 	"tsserver",
 	"gopls",
+	"rust_analyzer",
 }
 
 local settings = {
@@ -40,12 +41,12 @@ if not lsp_config_status_ok then
 end
 
 local opts = {}
-local lsp_handlers = "cfg.lsp.handlers"
+local lsp_handlers = require("cfg.lsp.handlers")
 
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require(lsp_handlers).on_attach,
-		capablities = require(lsp_handlers).capablities,
+		on_attach = lsp_handlers.on_attach,
+		capablities = lsp_handlers.capablities,
 	}
 
 	server = vim.split(server, "@")[1]

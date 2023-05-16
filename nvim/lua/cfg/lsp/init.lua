@@ -4,8 +4,6 @@ if not status_ok then
 	return
 end
 
-vim.lsp.set_log_level("debug")
-
 require("cfg.lsp.mason")
 require("cfg.lsp.handlers").setup()
 require("cfg.lsp.null-ls")

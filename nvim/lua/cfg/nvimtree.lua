@@ -12,7 +12,10 @@ local function on_attach(bufnr)
 
   vim.keymap.set("n", "<CR>", api.node.open.tab, opts("Open File"))
   vim.keymap.set("n", "h", api.node.open.edit, opts("Collapse"))
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Expand"))
   vim.keymap.set("n", "v", api.node.open.vertical, opts("Open in V-Split"))
+  vim.keymap.set("n", "r", api.fs.rename, opts("Rename a file"))
+  vim.keymap.set("n", "n", api.fs.create, opts("Create new file"))
 end
 
 nvim_tree.setup({

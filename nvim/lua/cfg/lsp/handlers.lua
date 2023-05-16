@@ -14,8 +14,8 @@ M.setup = function()
 
 	local config = {
 		virtual_text = {
-      prefix = "",
-    },
+			prefix = "",
+		},
 		signs = {
 			active = icons,
 		},
@@ -58,7 +58,7 @@ local function lsp_highlight_document(client)
 	end
 end
 
-local function lsp_keymaps(bufnr)
+M.lsp_keymaps = function(bufnr)
 	local function build_opts(opts)
 		local default_opts = { noremap = true, silent = true }
 		for k, v in pairs(opts) do
@@ -93,7 +93,7 @@ local function lsp_keymaps(bufnr)
 			j = { "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", "Next diagnostic" },
 			k = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", "Previous diagnostic" },
 			q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quick fix" },
-      r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+			r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 			h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show function info" },
 		},
 	}
@@ -124,7 +124,7 @@ M.on_attach = function(client, bufnr)
 	if client.name == "lua_ls" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
-	lsp_keymaps(bufnr)
+	M.lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end
 

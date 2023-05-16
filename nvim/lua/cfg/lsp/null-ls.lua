@@ -4,12 +4,17 @@ if not null_ls_status_ok then
 	return
 end
 
+local lsp_handlers = require("cfg.lsp.handlers")
+
 local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.prettier.with({ extra_args = {} }),
 		formatting.stylua,
+		diagnostics.markdownlint,
 	},
+	on_attach = lsp_handlers.on_attach,
 })
