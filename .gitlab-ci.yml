@@ -1,0 +1,13 @@
+stages:
+  - publish
+
+upload_to_nxc:
+  image: alpine:latest
+  stage: publish
+  script:
+    - 'curl https://nxc.ratulsaha.me/remote.php/dav/files/anony/dev/.vimrc
+      -X PUT
+      -u "$NXC_USERNAME:$NXC_PASSWORD"
+      --data-binary "@./.vimrc"'
+  only:
+    - main

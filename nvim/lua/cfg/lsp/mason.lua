@@ -14,6 +14,7 @@ local servers = {
 	"tsserver",
 	"gopls",
 	"rust_analyzer",
+	"yamlls",
 }
 
 local settings = {
