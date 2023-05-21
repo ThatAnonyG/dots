@@ -34,7 +34,7 @@ lazy.setup({
 	"kyazdani42/nvim-tree.lua", -- file explorer
 	"akinsho/bufferline.nvim", -- nice looking bufferline
 	"moll/vim-bbye", -- for bufferline
-	"akinsho/toggleterm.nvim", -- terminal in nvim
+	"christoomey/vim-tmux-navigator", -- tmux integration
 	{
 		"rcarriga/nvim-notify",
 		config = function()
@@ -73,6 +73,7 @@ lazy.setup({
 	-- Themes
 	"joshdick/onedark.vim", -- onedark color scheme
 	"folke/tokyonight.nvim", -- tokyonight color scheme
+	{ "catppuccin/nvim", name = "catppuccin" },
 
 	-- CMP Plugins
 	"hrsh7th/nvim-cmp", -- completion plugin

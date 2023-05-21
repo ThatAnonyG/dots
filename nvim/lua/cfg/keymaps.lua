@@ -27,10 +27,10 @@ keymap(
 keymap("x", "<C-r>", "<cmd>SearchBoxReplace visual_mode=true<CR>", build_opts({ desc = "Replace in file" }))
 
 -- Window navigation
-keymap("n", "<C-h>", "<C-w>h", build_opts({ desc = "Window left" }))
-keymap("n", "<C-j>", "<C-w>j", build_opts({ desc = "Window down" }))
-keymap("n", "<C-k>", "<C-w>k", build_opts({ desc = "Window up" }))
-keymap("n", "<C-l>", "<C-w>l", build_opts({ desc = "Window right" }))
+keymap("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", build_opts({ desc = "Window left" }))
+keymap("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", build_opts({ desc = "Window down" }))
+keymap("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", build_opts({ desc = "Window up" }))
+keymap("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", build_opts({ desc = "Window right" }))
 
 -- Save with CTRL-S
 keymap("n", "<C-s>", "<cmd>w<CR>", build_opts({ desc = "Save file" }))

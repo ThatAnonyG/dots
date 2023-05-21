@@ -10,7 +10,7 @@ local function on_attach(bufnr)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
-  vim.keymap.set("n", "<CR>", api.node.open.tab, opts("Open File"))
+  vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open File"))
   vim.keymap.set("n", "h", api.node.open.edit, opts("Collapse"))
   vim.keymap.set("n", "l", api.node.open.edit, opts("Expand"))
   vim.keymap.set("n", "v", api.node.open.vertical, opts("Open in V-Split"))
@@ -61,8 +61,7 @@ nvim_tree.setup({
 	},
 	renderer = {
 		highlight_git = true,
-		root_folder_modifier = ":t",
-    root_folder_label = false,
+		root_folder_label = ":t",
 		icons = {
 			show = {
 				file = true,

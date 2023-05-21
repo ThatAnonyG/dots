@@ -41,7 +41,7 @@ local nmappings = {
 	["p"] = { "<cmd>Telescope projects<CR>", "Projects" },
 	g = {
 		name = "Git",
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		g = { "<cmd>!tmux neww lazygit<CR>", "Lazygit" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
 		o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
@@ -66,12 +66,6 @@ local nmappings = {
 		f = { "<cmd>Format<CR>", "Format document" },
 		c = { "<cmd>w | Bdelete!<CR>", "Close file" },
 		q = { "<cmd>Bdelete!<CR>", "Close file (no save)" },
-	},
-	t = {
-		name = "Terminal",
-		f = { "<cmd>ToggleTerm direction=float<CR>", "Float" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<CR>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<CR>", "Vertical" },
 	},
 }
 
