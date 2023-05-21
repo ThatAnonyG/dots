@@ -5,6 +5,7 @@ upload_to_nxc:
   image: alpine:latest
   stage: publish
   script:
+    - apk add curl
     - 'curl https://nxc.ratulsaha.me/remote.php/dav/files/anony/dev/.vimrc
       -X PUT
       -u "$NXC_USERNAME:$NXC_PASSWORD"
