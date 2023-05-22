@@ -33,7 +33,8 @@ local nmappings = {
 	["a"] = { "<cmd>Alpha<CR>", "Dashboard" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false"
+		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false, "
+			.. "file_ignore_patterns = {'.git/', '.cache', '%.o', '%.a', '%.out', '%.class', '%.pdf', '%.mkv', '%.mp4', '%.zip'}"
 			.. (jit.os == "Windows" and "" or ", hidden = true")
 			.. " }))<CR>",
 		"Find files",
