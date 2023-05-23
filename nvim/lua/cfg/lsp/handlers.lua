@@ -14,7 +14,7 @@ M.setup = function()
 
 	local config = {
 		virtual_text = {
-			prefix = "",
+			prefix = "",
 		},
 		signs = {
 			active = icons,
