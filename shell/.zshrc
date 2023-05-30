@@ -102,12 +102,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=$HOME/.local/bin:$PATH:/usr/local/go/bin:`go env GOPATH`/bin
+export PATH=$HOME/.local/bin:/usr/local/go/bin:$PATH
+export PATH=$PATH:`go env GOPATH`/bin
 
 eval "$(starship init zsh)"
 
 alias brewx86="arch --x86_64 /usr/local/Homebrew/bin/brew"
-alias vim="nvim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

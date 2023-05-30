@@ -40,8 +40,8 @@ lazy.setup({
 		config = function()
 			local notify = require("notify")
 			notify.setup({
-				stages = "fade_in_slide_out",
-				background = "FloatShadow",
+				render = "compact",
+				background_colour = "FloatShadow",
 				timeout = 3000,
 			})
 			vim.notify = notify
