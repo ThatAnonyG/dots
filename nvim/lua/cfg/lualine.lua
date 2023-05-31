@@ -6,7 +6,7 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "nord",
-		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+		disabled_filetypes = { "dashboard", "Outline" },
 	},
+	extensions = { "nvim-tree" },
 })
