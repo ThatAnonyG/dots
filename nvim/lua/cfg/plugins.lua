@@ -50,7 +50,13 @@ lazy.setup({
 	"nvim-tree/nvim-web-devicons", -- cool icons
 	"nvim-lualine/lualine.nvim", -- cool status line
 	"ahmedkhalf/project.nvim", -- easily access projects
-	"lewis6991/impatient.nvim", -- improve load times
+	{
+		"lewis6991/impatient.nvim",
+		config = function()
+			local impatient = require("impatient")
+			impatient.enable_profile()
+		end,
+	}, -- improve load times
 	"goolord/alpha-nvim", -- startup dashboard
 	"MunifTanjim/nui.nvim", -- dependency for fine cmdline and searchbox
 	"VonHeikemen/fine-cmdline.nvim", -- floating cmdline
@@ -84,27 +90,31 @@ lazy.setup({
 	"hrsh7th/cmp-nvim-lua", -- completion for LUA
 	"saadparwaiz1/cmp_luasnip", -- snippet completion
 
-	-- Snippets
-	"L3MON4D3/LuaSnip", -- snippet engine
-	"rafamadriz/friendly-snippets", -- community snippets
-
-	-- LSP Plugins
+	-- LSP and Language Plugins
 	"neovim/nvim-lspconfig", -- enable the LSP
 	"williamboman/mason.nvim", -- GUI installer for language servers
 	"williamboman/mason-lspconfig.nvim", -- LSP config for mason
 	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+	"leafOfTree/vim-svelte-plugin", -- support for svelte
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		dependencies = { "windwp/nvim-ts-autotag" },
+	}, -- syntax highlighter
+	"L3MON4D3/LuaSnip", -- snippet engine
+	"rafamadriz/friendly-snippets", -- community snippets
 
 	-- Telescope
 	"nvim-telescope/telescope.nvim", -- Telescope plugin
 	"nvim-telescope/telescope-media-files.nvim", -- Telescope extension to view media files
 
-	-- Codebase stuff
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, -- syntax highlighter
+	-- Utility Plugins
 	"p00f/nvim-ts-rainbow", -- rainbow brackets
 	"JoosepAlviste/nvim-ts-context-commentstring", -- context aware comments
+	"numToStr/Comment.nvim", -- comment stuff
 	"lukas-reineke/indent-blankline.nvim", -- indentation lines
 	"windwp/nvim-autopairs", -- auto close brackets and quotes
-	"numToStr/Comment.nvim", -- comment stuff
+	"andweeb/presence.nvim", -- discord rich presence
 	{
 		"github/copilot.vim",
 		config = function()

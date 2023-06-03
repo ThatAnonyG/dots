@@ -12,9 +12,22 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = {} }),
+		formatting.prettier.with({ extra_filetypes = { "svelte" } }),
 		formatting.stylua,
 		diagnostics.markdownlint,
+		null_ls.builtins.diagnostics.eslint.with({
+			extra_filetypes = { "svelte" },
+			condition = function(utils)
+				local check = utils.root_has_file({
+					".eslintrc.js",
+					".eslintrc.cjs",
+					".eslintrc.yaml",
+					".eslintrc.yml",
+					".eslintrc.json",
+				})
+				return check
+			end,
+		}),
 	},
 	on_attach = lsp_handlers.on_attach,
 })

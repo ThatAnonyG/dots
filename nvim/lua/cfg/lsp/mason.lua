@@ -9,11 +9,16 @@ if not mason_lspconfig_status_ok then
 end
 
 local servers = {
-	"lua_ls",
-	"jsonls",
-	"tsserver",
+	"cssls",
+	"emmet_ls",
 	"gopls",
+	"html",
+	"jsonls",
+	"lua_ls",
 	"rust_analyzer",
+	"svelte",
+	"tailwindcss",
+	"tsserver",
 	"yamlls",
 }
 
