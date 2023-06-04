@@ -18,7 +18,7 @@ keymap("i", "<C-j>", 'copilot#Accept("<CR>")', build_opts({ noremap = false, exp
 -- Toggle comment on a line
 keymap(
 	"i",
-	"<C-/",
+	"<C-/>",
 	'<cmd>lua require("Comment.api").toggle_current_linewise()<CR>',
 	build_opts({ desc = "Toggle comment" })
 )

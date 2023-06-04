@@ -1,0 +1,34 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 10
+    y: 10
+  decorations: none
+  startup_mode: Maximized
+  dynamic_title: false
+  scrolling:
+    history: 50000
+
+font:
+  size: 10
+  normal:
+    family: FiraCode Nerd Font
+    style: Regular
+
+draw_bold_text_with_bright_colors: true
+
+dynamic_title: false
+
+shell:
+  program: "C:\\Windows\\System32\\wsl.exe ~"
+
+import:
+  # - "~/dotfiles/shell/alacritty/themes/catppuccin/catppuccin-frappe.yml"
+  # - "~/dotfiles/shell/alacritty/themes/catppuccin/catppuccin-latte.yml"
+  # - "~/dotfiles/shell/alacritty/themes/catppuccin/catppuccin-macchiato.yml"
+  - "~/dotfiles/shell/alacritty/themes/catppuccin/catppuccin-mocha.yml"
+
+key_bindings:
+  - { key: Space, mods: Control, chars: "\x00" }
