@@ -27,10 +27,10 @@ keymap(
 keymap("x", "<C-r>", "<cmd>SearchBoxReplace visual_mode=true<CR>", build_opts({ desc = "Replace in file" }))
 
 -- Window navigation
-keymap("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", build_opts({ desc = "Window left" }))
-keymap("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", build_opts({ desc = "Window down" }))
-keymap("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", build_opts({ desc = "Window up" }))
-keymap("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", build_opts({ desc = "Window right" }))
+keymap("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", build_opts({ desc = "Window left" }))
+keymap("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", build_opts({ desc = "Window down" }))
+keymap("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", build_opts({ desc = "Window up" }))
+keymap("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", build_opts({ desc = "Window right" }))
 
 -- Save with CTRL-S
 keymap("n", "<C-s>", "<cmd>w<CR>", build_opts({ desc = "Save file" }))
@@ -40,8 +40,8 @@ keymap("n", "<C-s>", "<cmd>w<CR>", build_opts({ desc = "Save file" }))
 ----------------------
 
 -- Move text up and down
-keymap("x", "<S-j>", "<cmd>m '>+1<CR>gv-gv", build_opts({ desc = "Move line down" }))
-keymap("x", "<S-k>", "<cmd>m '<-2<CR>gv-gv", build_opts({ desc = "Move line up" }))
+keymap("n", "<M-j>", "<cmd>m .+1<CR>==", build_opts({ desc = "Move line down" }))
+keymap("n", "<M-k>", "<cmd>m .-2<CR>==", build_opts({ desc = "Move line up" }))
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", build_opts({ desc = "Indent block to left" }))

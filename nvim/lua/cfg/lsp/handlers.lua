@@ -2,14 +2,14 @@ local M = {}
 
 M.setup = function()
 	local icons = {
-		{ name = "DiagnosticSignError", text = "" },
-		{ name = "DiagnosticSignWarn", text = "" },
-		{ name = "DiagnosticSignHint", text = "" },
-		{ name = "DiagnosticSignInfo", text = "" },
+		{ name = "DiagnosticSignError", hl = "DiagnosticVirtualTextError", text = "" },
+		{ name = "DiagnosticSignWarn", hl = "DiagnosticVirtualTextWarn", text = "" },
+		{ name = "DiagnosticSignHint", hl = "DiagnosticVirtualTextHint", text = "" },
+		{ name = "DiagnosticSignInfo", hl = "DiagnosticVirtualTextInfo", text = "" },
 	}
 
 	for _, icon in ipairs(icons) do
-		vim.fn.sign_define(icon.name, { texthl = icon.name, text = icon.text, numhl = "" })
+		vim.fn.sign_define(icon.name, { texthl = icon.name, text = icon.text, numhl = icon.name, linehl = icon.hl })
 	end
 
 	local config = {
@@ -18,7 +18,7 @@ M.setup = function()
 			active = icons,
 		},
 		update_in_insert = true,
-		underline = true,
+		underline = false,
 		severity_sort = true,
 		float = {
 			focusable = false,
