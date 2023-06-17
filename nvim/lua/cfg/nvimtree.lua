@@ -14,8 +14,16 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "h", api.node.open.edit, opts("Collapse"))
 	vim.keymap.set("n", "l", api.node.open.edit, opts("Expand"))
 	vim.keymap.set("n", "v", api.node.open.vertical, opts("Open in V-Split"))
-	vim.keymap.set("n", "r", api.fs.rename, opts("Rename a file"))
 	vim.keymap.set("n", "n", api.fs.create, opts("Create new file"))
+	vim.keymap.set("n", "d", api.fs.remove, opts("Delete a file"))
+	vim.keymap.set("n", "x", api.fs.cut, opts("Cut a file"))
+	vim.keymap.set("n", "c", api.fs.copy.node, opts("Copy a file"))
+	vim.keymap.set("n", "V", api.fs.paste, opts("Paste a file"))
+	vim.keymap.set("n", "r", api.fs.rename, opts("Rename a file"))
+	vim.keymap.set("n", "y", api.fs.copy.filename, opts("Copy a filename"))
+	vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy a file path (relative)"))
+	vim.keymap.set("n", "<C-y>", api.fs.copy.absolute_path, opts("Copy a file path (absolute)"))
+	vim.keymap.set("n", "<C-x>", api.fs.clear_clipboard, opts("Clear clipboard"))
 end
 
 nvim_tree.setup({

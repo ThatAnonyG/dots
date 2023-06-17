@@ -5,6 +5,7 @@ end
 
 lualine.setup({
 	options = {
+		theme = "catppuccin",
 		icons_enabled = true,
 		disabled_filetypes = { "dashboard", "Outline" },
 	},

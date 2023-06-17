@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH=$HOME/.local/bin:/usr/local/go/bin:$PATH
+export PATH=$PATH:`yarn global bin`
 export PATH=$PATH:`go env GOPATH`/bin
 
 eval "$(starship init zsh)"
