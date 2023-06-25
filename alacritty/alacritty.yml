@@ -1,15 +1,16 @@
 env:
   TERM: xterm-256color
+  WINIT_X11_SCALE_FACTOR: '1.0'
 
 window:
   padding:
     x: 10
     y: 10
-  decorations: none
   startup_mode: Maximized
   dynamic_title: false
   scrolling:
     history: 50000
+  opacity: 0.80
 
 font:
   size: 10
@@ -21,18 +22,17 @@ draw_bold_text_with_bright_colors: true
 
 dynamic_title: false
 
-shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux attach || tmux new -s main" 
+# shell:
+  # program: /bin/zsh
+  # args:
+    # - -c
+    # - "tmux attach || tmux new -s main" 
 
 import:
   # - "~/dotfiles/shell/alacritty/themes/catppuccin/catppuccin-frappe.yml"
   # - "~/dotfiles/shell/alacritty/themes/catppuccin/catppuccin-latte.yml"
   # - "~/dotfiles/shell/alacritty/themes/catppuccin/catppuccin-macchiato.yml"
-  - "~/dotfiles/shell/alacritty/themes/catppuccin/catppuccin-mocha.yml"
+  - "~/.config/alacritty/themes/catppuccin/catppuccin-mocha.yml"
 
 key_bindings:
   - { key: Space, mods: Control, chars: "\x00" }

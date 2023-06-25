@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.local/bin:/usr/local/go/bin:$PATH
 export PATH=$PATH:`yarn global bin`
 export PATH=$PATH:`go env GOPATH`/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 eval "$(starship init zsh)"
 
@@ -118,3 +119,7 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+if [ -z "$TMUX" ]
+then
+    tmux attach -t TMUX || tmux new -s TMUX
+fi
