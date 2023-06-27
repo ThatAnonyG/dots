@@ -154,6 +154,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 assign [class="Brave-browser"] $ws2
 assign [class="discord"] $ws3
 assign [class="Spotify"] $ws4
+assign [class="DBeaver"] $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -198,8 +199,8 @@ bindsym $mod+ctrl+h resize grow width 10 px or 10 ppt
 gaps inner 5px
 
 # Remove window title bar
-default_border pixel 2
-default_floating_border pixel 1
+default_border pixel 0
+default_floating_border pixel 0
 
 # Lanch Nitrogen
 exec --no-startup-id nitrogen --restore
@@ -209,6 +210,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Launch Picom
 exec_always --no-startup-id picom --config="$HOME/.config/picom/picom.conf"
+
+# Dunst
+exec_always --no-startup-id dunst -conf "$HOME/.config/dunst/dunstrc"
 
 # Launch Flameshot
 exec --no-startup-id flameshot
@@ -221,3 +225,6 @@ exec --no-startup-id discord
 
 # Launch Spotify
 exec --no-startup-id spotify-launcher
+
+# Launch DBeaver
+exec --no-startup-id dbeaver
