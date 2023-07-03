@@ -103,6 +103,7 @@ lazy.setup({
 	}, -- syntax highlighter
 	"L3MON4D3/LuaSnip", -- snippet engine
 	"rafamadriz/friendly-snippets", -- community snippets
+	"SmiteshP/nvim-navic", -- winbar context outline
 
 	-- Telescope
 	"nvim-telescope/telescope.nvim", -- Telescope plugin

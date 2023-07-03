@@ -125,6 +125,12 @@ M.on_attach = function(client, bufnr)
 	if client.name == "lua_ls" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
+
+	local status_ok, navic = pcall(require, "nvim-navic")
+	if status_ok and client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+	end
+
 	M.lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end

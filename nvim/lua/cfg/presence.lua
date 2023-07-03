@@ -1,6 +1,6 @@
 local status, presence = pcall(require, "presence")
 if not status then
-	print("Error loading Discord Presence: " .. presence)
+	return
 end
 
 presence.setup({
@@ -9,7 +9,7 @@ presence.setup({
 	neovim_image_text = "x10 Dev Stuff",
 	main_image = "neovim",
 	client_id = "793271441293967371",
-	log_level = nil, 
+	log_level = nil,
 	debounce_timeout = 10,
 	enable_line_number = false,
 	blacklist = {},
