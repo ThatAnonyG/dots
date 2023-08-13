@@ -7,6 +7,7 @@ local function build_opts(opts)
 end
 
 local keymap = vim.api.nvim_set_keymap -- function alias
+local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
 
 ---------------------
 --- CTRL MAPPINGS ---
@@ -22,6 +23,12 @@ keymap(
 	'<cmd>lua require("Comment.api").toggle.linewise.current()<CR>',
 	build_opts({ desc = "Toggle comment" })
 )
+
+-- Toggle comment on a line
+vim.keymap.set("x", "<C-_>", function()
+	vim.api.nvim_feedkeys(esc, "nx", false)
+	require("Comment.api").toggle.linewise(vim.fn.visualmode())
+end, build_opts({ desc = "Toggle comment" }))
 
 -- Search and replace selection mode
 keymap("x", "<C-r>", "<cmd>SearchBoxReplace visual_mode=true<CR>", build_opts({ desc = "Replace in file" }))

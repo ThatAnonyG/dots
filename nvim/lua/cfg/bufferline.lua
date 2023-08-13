@@ -26,7 +26,7 @@ bufferline.setup({
 		show_close_icon = true,
 		show_tab_indicators = true,
 		persist_buffer_sort = true,
-		separator_style = "slant",
+		separator_style = "slope",
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
 	},

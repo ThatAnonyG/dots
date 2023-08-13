@@ -10,6 +10,8 @@ end
 
 local servers = {
 	"cssls",
+	"dockerls",
+	"docker_compose_language_service",
 	"emmet_ls",
 	"gopls",
 	"html",
