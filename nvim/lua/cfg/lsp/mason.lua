@@ -12,6 +12,7 @@ local servers = {
 	"cssls",
 	"dockerls",
 	"docker_compose_language_service",
+	"elixirls",
 	"emmet_ls",
 	"gopls",
 	"html",
