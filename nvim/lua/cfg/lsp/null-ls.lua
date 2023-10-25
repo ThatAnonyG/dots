@@ -14,7 +14,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({ extra_filetypes = { "svelte" } }),
 		formatting.stylua,
-    formatting.autopep8,
+		formatting.autopep8,
 		diagnostics.markdownlint,
 		null_ls.builtins.diagnostics.eslint.with({
 			extra_filetypes = { "svelte" },

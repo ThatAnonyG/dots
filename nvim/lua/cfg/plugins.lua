@@ -62,19 +62,6 @@ lazy.setup({
 	"VonHeikemen/fine-cmdline.nvim", -- floating cmdline
 	"VonHeikemen/searchbox.nvim", -- floating search bar
 	"folke/which-key.nvim", -- keybindings
-	{
-		"Saecki/crates.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		tag = "v0.3.0",
-		config = function()
-			require("crates").setup({
-				null_ls = {
-					enabled = true,
-					name = "crates.nvim",
-				},
-			})
-		end,
-	}, -- rust crates"
 
 	-- Themes
 	"joshdick/onedark.vim", -- onedark color scheme
@@ -94,7 +81,7 @@ lazy.setup({
 	"neovim/nvim-lspconfig", -- enable the LSP
 	"williamboman/mason.nvim", -- GUI installer for language servers
 	"williamboman/mason-lspconfig.nvim", -- LSP config for mason
-	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+	"nvimtools/none-ls.nvim", -- for formatters and linters
 	"leafOfTree/vim-svelte-plugin", -- support for svelte
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -110,7 +97,7 @@ lazy.setup({
 	"nvim-telescope/telescope-media-files.nvim", -- Telescope extension to view media files
 
 	-- Utility Plugins
-	"p00f/nvim-ts-rainbow", -- rainbow brackets
+	-- "p00f/nvim-ts-rainbow", -- rainbow brackets
 	"JoosepAlviste/nvim-ts-context-commentstring", -- context aware comments
 	"numToStr/Comment.nvim", -- comment stuff
 	"lukas-reineke/indent-blankline.nvim", -- indentation lines

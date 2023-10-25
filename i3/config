@@ -56,13 +56,8 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id $HOME/dotfiles/rofi/files/scripts/launcher_t4 
+bindsym $mod+x exec --no-startup-id $HOME/dotfiles/rofi/files/scripts/powermenu_t3
 
 # change focus
 bindsym $mod+h focus left
@@ -154,7 +149,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 assign [class="Brave-browser"] $ws2
 assign [class="discord"] $ws3
 assign [class="Spotify"] $ws4
-assign [class="DBeaver"] $ws5
+assign [class="Slack"] $ws5
+assign [class="obsidian"] $ws6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -202,6 +198,12 @@ gaps inner 5px
 default_border pixel 0
 default_floating_border pixel 0
 
+# Start gnome keyring daemon
+# exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+
+# Resurrect PM2
+exec --no-startup-id pm2 resurrect
+
 # Lanch Nitrogen
 exec --no-startup-id nitrogen --restore
 
@@ -214,8 +216,14 @@ exec_always --no-startup-id picom --config="$HOME/.config/picom/picom.conf"
 # Dunst
 exec_always --no-startup-id dunst -conf "$HOME/.config/dunst/dunstrc"
 
+# Launch Blueman tray icon
+exec --no-startup-id blueman-applet
+
 # Launch Flameshot
 exec --no-startup-id flameshot
+
+# Launch Alacritty
+exec --no-startup-id alacritty
 
 # Launch Brave
 exec --no-startup-id brave
@@ -226,5 +234,8 @@ exec --no-startup-id discord
 # Launch Spotify
 exec --no-startup-id spotify-launcher
 
-# Launch DBeaver
-exec --no-startup-id dbeaver
+# Launch Slack
+exec --no-startup-id slack
+
+# Launch Obsidian
+exec --no-startup-id obsidian

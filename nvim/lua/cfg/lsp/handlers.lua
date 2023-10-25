@@ -115,7 +115,7 @@ M.lsp_keymaps = function(bufnr)
 		build_opts({ desc = "Function signature help" })
 	)
 
-	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
+	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({ timeout_ms = 5000 })' ]])
 end
 
 M.on_attach = function(client, bufnr)

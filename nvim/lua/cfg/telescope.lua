@@ -35,6 +35,7 @@ telescope.setup({
 				["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 				["<C-l>"] = actions.complete_tag,
 				["<C-_>"] = actions.which_key,
+				["<esc>"] = actions.close,
 			},
 			n = {
 				["<C-c>"] = actions.close,

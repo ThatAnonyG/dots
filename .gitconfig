@@ -3,3 +3,5 @@
 [user]
 	name = Ratul Saha
 	email = contact@ratulsaha.me
+[core]
+	editor = nvim
