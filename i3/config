@@ -103,8 +103,15 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# scratchpad bindings
+bindsym $mod+m move scratchpad
+bindsym $mod+Shift+m scratchpad show
+
 # focus the parent container
 bindsym $mod+a focus parent
+
+# Show file manager
+bindsym $mod+Shift+f [class="Nemo"] scratchpad show
 
 # Bind Print to Flameshot
 bindsym Print exec flameshot gui
