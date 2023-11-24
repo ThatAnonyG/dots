@@ -50,7 +50,8 @@ def main():
         print(bar)
     except Exception as e:
         if isinstance(e, dbus.exceptions.DBusException):
-            print('')
+            if e.get_dbus_name() == 'org.freedesktop.DBus.Error.ServiceUnknown':
+                print("No player running")
         else:
             print(e)
 

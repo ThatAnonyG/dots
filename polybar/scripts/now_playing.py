@@ -1,0 +1,84 @@
+import dbus
+import time
+
+
+def main():
+    loaded_track = ("", False)
+    print_length = 35
+    cursor = 0
+    print_str = ""
+
+    while True:
+        try:
+            session_bus = dbus.SessionBus()
+            spotify_bus = session_bus.get_object(
+                'org.mpris.MediaPlayer2.spotify',
+                '/org/mpris/MediaPlayer2'
+            )
+
+            spotify_properties = dbus.Interface(
+                spotify_bus,
+                'org.freedesktop.DBus.Properties'
+            )
+
+            metadata = spotify_properties.Get(
+                'org.mpris.MediaPlayer2.Player', 'Metadata'
+            )
+
+            track_title = metadata['xesam:title']
+            if track_title is None or track_title == "":
+                track_title = "Unknown"
+
+            track_artist = metadata['xesam:artist']
+            if track_artist is None or len(track_artist) == 0 or track_artist[0] == "":
+                track_artist = "Unknown"
+            else:
+                track_artist = track_artist[0]
+
+            curr_track = f"{track_title} | by {track_artist}"
+            do_scroll = loaded_track[1]
+
+            if loaded_track[0] != curr_track:
+                cursor = 0
+                print_str = curr_track
+
+                if len(curr_track) > print_length:
+                    do_scroll = True
+                    print_str = curr_track[:print_length]
+                    cursor = print_length
+                else:
+                    do_scroll = False
+
+                loaded_track = (curr_track, do_scroll)
+            elif do_scroll:
+                # pop first char
+                print_str = print_str[1:]
+
+                next_char = " "
+
+                if cursor >= 0:
+                    next_char = loaded_track[0][cursor]
+
+                # append next char
+                print_str += next_char
+
+                # increment cursor
+                cursor += 1
+
+                # reset cursor if needed
+                if cursor >= len(loaded_track[0]):
+                    cursor = -2
+
+            print(print_str, flush=True)
+        except Exception as e:
+            if isinstance(e, dbus.exceptions.DBusException):
+                if e.get_dbus_name() == 'org.freedesktop.DBus.Error.ServiceUnknown':
+                    print("No player running", flush=True)
+            else:
+                print(e)
+
+        time.sleep(0.5)
+
+
+if __name__ == "__main__":
+    main()

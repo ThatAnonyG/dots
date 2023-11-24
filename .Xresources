@@ -1,13 +1,21 @@
-xterm*faceName: FiraCode Nerd Font Mono
-xterm*faceSize: 14
+URxvt.font: xft:FiraCode Nerd Font Mono:pixelsize=13
+URxvt.letterSpace: -1
+URxvt.skipBuiltinGlyphs: false
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 
-xterm*loginshell: true
-xterm*savelines: 10000
+URxvt.clipboard.autocopy: true
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
-xterm*rightScrollBar: false
-xterm*ScrollBar: false
-
-xterm*visualBell: false
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
 ! Nord Theme
 #define nord0 #2E3440

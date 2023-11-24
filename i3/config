@@ -113,8 +113,16 @@ bindsym $mod+a focus parent
 # Show file manager
 bindsym $mod+Shift+f [class="Nemo"] scratchpad show
 
+bindsym $mod+Tab mode "Cycle scratchpad"; scratchpad show
+mode "Cycle scratchpad" {
+  bindsym $mod+Tab scratchpad show; scratchpad show
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
 # Bind Print to Flameshot
 bindsym Print exec flameshot gui
+bindsym ctrl+Print exec ~/dotfiles/i3/scripts/window_capture.sh activewindow
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -157,7 +165,7 @@ assign [class="Brave-browser"] $ws2
 assign [class="discord"] $ws3
 assign [class="Spotify"] $ws4
 assign [class="Slack"] $ws5
-assign [class="obsidian"] $ws6
+assign [class="Notion"] $ws6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -244,5 +252,5 @@ exec --no-startup-id spotify-launcher
 # Launch Slack
 exec --no-startup-id slack
 
-# Launch Obsidian
-exec --no-startup-id obsidian
+# Launch Notion 
+exec --no-startup-id notion-app

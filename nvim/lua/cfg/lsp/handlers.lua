@@ -96,6 +96,7 @@ M.lsp_keymaps = function(bufnr)
 			q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quick fix" },
 			r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 			h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show function info" },
+			s = { "<cmd>Telescope lsp_document_symbols<CR>", "Search symbols" },
 		},
 	}
 	require("which-key").register(mappings, {
