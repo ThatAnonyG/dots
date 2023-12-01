@@ -2,7 +2,7 @@
 
 icon=/usr/share/transmission/public_html/images/favicon.png
 
-pgrep -f "/usr/bin/transmission-daemon" > /dev/null
+pgrep -xf "transmission-daemon" > /dev/null
 daemon_running=$?
 
 if [ $daemon_running -ne 0 ]; then
