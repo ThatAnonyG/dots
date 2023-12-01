@@ -1,3 +1,4 @@
+require("filetype")
 require("cfg.options")
 require("cfg.plugins")
 require("cfg.keymaps")
