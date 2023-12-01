@@ -1,0 +1,42 @@
+#!/bin/bash
+
+text="%{F#cdd6f4}"
+red="%{F#f38ba8}"
+
+if [ "$1" == "--status" ]; then
+  curr=$(sudo wg show | grep "interface:" | cut -f2 -d" ")
+
+  output="%{T2}"
+
+  if [ -z "$curr" ]; then
+    output="$output$red"
+  else
+    output="%{A:sudo wg-quick down $curr:}$output %{T-}$text$curr%{A}"
+  fi
+
+  echo $output
+
+  exit 0
+fi
+
+interfaces=($(ls /etc/wireguard/ | sed 's/.conf//g'))
+
+i=1
+
+for interface in ${interfaces[@]}
+do
+  echo "$i) $interface"
+  i=$((i+1))
+done
+
+selection=0
+
+read -n 1 -p "Input Selection: " selection
+
+echo ""
+
+index=$((selection-1))
+selected_interface=${interfaces[$index]}
+
+echo "Starting VPN: $selected_interface"
+sudo wg-quick up $selected_interface

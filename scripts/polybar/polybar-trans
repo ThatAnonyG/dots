@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+torrents=$(transmission-remote -l)
+
+count=$(echo "$torrents" | wc -l)
+count=$((count - 1))
+
+torrents=$(echo "$torrents" | sed -n "2,${count}p" | sed 's/  */ /g' | awk '{$1=$1};1')
+
+downloading=$(echo "$torrents" | grep -P '(None|[0-9.]+)\s(Downloading|Up & Down)' | wc -l)
+idle=$(echo "$torrents" | grep -P '(None|[0-9.]+)\sIdle' | wc -l)
+stopped=$(echo "$torrents" | grep -P '(None|[0-9.]+)\sStopped' | wc -l)
+
+text="%{F#cdd6f4}"
+lavender="%{F#b4befe}"
+font="%{T2}"
+font_default="%{T-}"
+
+echo "$lavender$font $text$font_default$downloading $lavender$font $text$font_default$stopped $lavender$font $text$font_default$idle"
