@@ -1,0 +1,11 @@
+picom --config="$HOME/.config/picom/picom.conf" &
+dunst -conf "$HOME/.config/dunst/dunstrc" &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+nitrogen --restore &
+
+transmission-daemon &
+blueman-applet &
+nextcloud &
+flameshot &
+
+exec i3
