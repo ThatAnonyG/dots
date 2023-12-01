@@ -1,5 +1,3 @@
 .DS_Store
 vim/plugged
 tmux/plugins
-transmission-daemon/*
-!transmission-daemon/settings.json

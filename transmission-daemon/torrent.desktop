@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Torrent Add
+Comment=Easier dealing with torrents
+Icon=/usr/share/transmission/public_html/images/favicon.png
+Exec=/usr/bin/env trans-add %U

@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+icon=/usr/share/transmission/public_html/images/favicon.png
+
+notify-send \
+  -i $icon \
+  -a Transmission \
+  "Transmission Daemon" "$TR_TORRENT_NAME has finished downloading"

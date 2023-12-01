@@ -1,0 +1,5 @@
+[Default Applications]
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop;
+x-scheme-handler/magnet=torrent.desktop
+application/x-bittorrent=torrent.desktop
+x-scheme-handler/mailto=brave-browser.desktop
