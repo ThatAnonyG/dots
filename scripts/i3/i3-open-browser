@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+# Read text/html mime
+default=$(xdg-mime query default "text/html")
+
+# Open browser
+if [ "$default" == "firefox.desktop" ]; then
+  firefox &
+elif [ "$default" == "brave-browser.desktop" ]; then
+  brave &
+else
+  firefox &
+fi
