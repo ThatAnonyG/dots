@@ -102,7 +102,7 @@ lazy.setup({
 	"numToStr/Comment.nvim", -- comment stuff
 	"lukas-reineke/indent-blankline.nvim", -- indentation lines
 	"windwp/nvim-autopairs", -- auto close brackets and quotes
-	"andweeb/presence.nvim", -- discord rich presence
+	-- "andweeb/presence.nvim", -- discord rich presence
 	{
 		"github/copilot.vim",
 		config = function()
