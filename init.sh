@@ -76,7 +76,7 @@ flag=$1
 
 if [ "$flag" == "-i" ]; then
   echo "Installing..."
-  create_symlinks()
+  create_symlinks
 elif [ "$flag" == "-u" ]; then
   echo "Updating (todo)..."
 else
