@@ -40,7 +40,7 @@ ZSH_THEME="lambda"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -105,6 +105,12 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
 alias brewx86="arch --x86_64 /usr/local/Homebrew/bin/brew"
+
+case $TERM in
+  rxvt*)
+    precmd () { print -Pn "\e]0;$TERMINAL\a" }
+  ;;
+esac
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

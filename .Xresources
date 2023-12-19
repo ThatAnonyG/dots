@@ -1,4 +1,8 @@
-URxvt.font: xft:FiraCode Nerd Font Mono:pixelsize=13
+URxvt.font: xft:JetBrainsMono Nerd Font Mono:medium:size=10:antialiasing=true:style=Regular
+URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:bold:size=10:antialiasing=true:style=Bold
+URxvt.italicFont: xft:JetBrainsMono Nerd Font Mono:medium:size=10:antialiasing=true:style=Italic
+URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font Mono:bold:size=10:antialiasing=true:style=Bold Italic
+
 URxvt.letterSpace: -1
 URxvt.skipBuiltinGlyphs: false
 URxvt.scrollBar: false
@@ -17,43 +21,52 @@ URxvt.iso14755_52: false
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
-! Nord Theme
-#define nord0 #2E3440
-#define nord1 #3B4252
-#define nord2 #434C5E
-#define nord3 #4C566A
-#define nord4 #D8DEE9
-#define nord5 #E5E9F0
-#define nord6 #ECEFF4
-#define nord7 #8FBCBB
-#define nord8 #88C0D0
-#define nord9 #81A1C1
-#define nord10 #5E81AC
-#define nord11 #BF616A
-#define nord12 #D08770
-#define nord13 #EBCB8B
-#define nord14 #A3BE8C
-#define nord15 #B48EAD
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
 
-*.foreground:   nord4
-*.background:   nord0
-*.cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
+! special
+URxvt.background: [80]#1E1E2E
+URxvt.foreground: #CDD6F4
+URxvt.cursorColor: #F5E0DC
 
-*.color0: nord1
-*.color1: nord11
-*.color2: nord14
-*.color3: nord13
-*.color4: nord9
-*.color5: nord15
-*.color6: nord8
-*.color7: nord5
-*.color8: nord3
-*.color9: nord11
-*.color10: nord14
-*.color11: nord13
-*.color12: nord9
-*.color13: nord15
-*.color14: nord7
-*.color15: nord6
+! black
+URxvt.color0: #45475A
+URxvt.color8: #585B70
+
+! red
+URxvt.color1: #F38BA8
+URxvt.color9: #F38BA8
+
+! green
+URxvt.color2: #A6E3A1
+URxvt.color10: #A6E3A1
+
+! yellow
+URxvt.color3: #F9E2AF
+URxvt.color11: #F9E2AF
+
+! blue
+URxvt.color4: #89B4FA
+URxvt.color12: #89B4FA
+
+! magenta
+URxvt.color5: #F5C2E7
+URxvt.color13: #F5C2E7
+
+! cyan
+URxvt.color6: #94E2D5
+URxvt.color14: #94E2D5
+
+! white
+URxvt.color7: #BAC2DE
+URxvt.color15: #A6ADC8
+
+!! URxvt Appearance
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 10
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.urgentOnBell: true
+URxvt.depth: 32

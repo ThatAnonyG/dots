@@ -3,6 +3,8 @@ dunst -conf "$HOME/.config/dunst/dunstrc" &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nitrogen --restore &
 
+xrdb -load ~/.Xresources
+
 transmission-daemon &
 blueman-applet &
 nextcloud &
