@@ -4,7 +4,7 @@ export PATH=$PATH:$HOME/dotfiles/scripts/polybar
 export PATH=$PATH:$HOME/dotfiles/scripts/transmission
 
 # Default terminal
-export TERMINAL=urxvt
+export TERMINAL=st
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
 	pgrep i3 || startx "$HOME/.xinitrc"

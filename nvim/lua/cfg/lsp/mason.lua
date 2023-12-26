@@ -10,6 +10,7 @@ end
 
 local servers = {
 	"cssls",
+  "clangd",
 	"dockerls",
 	"docker_compose_language_service",
 	"elixirls",
