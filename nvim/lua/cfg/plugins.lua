@@ -109,4 +109,5 @@ lazy.setup({
 			vim.cmd([[ highlight CopilotSuggestion guifg=#555555 ctermfg=8 ]])
 		end,
 	}, -- github copilot
+	"norcalli/nvim-colorizer.lua", -- color code highlighter
 })
