@@ -21,22 +21,6 @@ fi
 
 interfaces=($(ls /etc/wireguard/ | sed 's/.conf//g'))
 
-i=1
+selected_interface=$(printf '%s\n' "${interfaces[@]/$'\n'/}" | dmenu -c -l 10)
 
-for interface in ${interfaces[@]}
-do
-  echo "$i) $interface"
-  i=$((i+1))
-done
-
-selection=0
-
-read -n 1 -p "Input Selection: " selection
-
-echo ""
-
-index=$((selection-1))
-selected_interface=${interfaces[$index]}
-
-echo "Starting VPN: $selected_interface"
 sudo wg-quick up $selected_interface

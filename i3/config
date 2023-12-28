@@ -67,7 +67,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+space exec --no-startup-id dmenu_run -c -l 15
+bindsym $mod+space exec --no-startup-id dmenu_run -n -c -l 15
 
 # change focus
 bindsym $mod+h focus left
