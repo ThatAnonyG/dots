@@ -1,0 +1,39 @@
+# terminal emulator
+super + Return
+  $TERMINAL
+
+# floating terminal emulator
+alt + shift + t
+  st -c StFloat
+
+# dmenu
+super + @space
+  dmenu_run -n -c -l 15
+
+# make sxhkd reload its configuration files
+super + Escape
+  pkill -USR1 -x sxhkd
+
+# screenshot
+Print
+  flameshot gui
+
+# screenshot active window
+ctrl + Print
+  win-capture activewindow
+
+# volume
+XF86Audio{Raise,Lower}Volume
+  pactl set-sink-volume $(pactl info | grep "Default Sink" | cut -f3 -d" ") {+,-}5%
+
+# mute audio
+XF86AudioMute
+  pactl set-sink-mute $(pactl info | grep "Default Sink" | cut -f3 -d" ") toggle
+
+# mute mic
+XF86AudioMicMute
+  pactl set-source-mute $(pactl info | grep "Default Source" | cut -f3 -d" ") toggle
+
+# Music controls
+XF86Audio{Play,Pause,Next,Prev}
+  playerctl -p spotify {play-pause,play-pause,next,previous}

@@ -1,4 +1,5 @@
 export PATH=/usr/local/go/bin:$PATH
+export PATH=$PATH:$HOME/dotfiles/scripts/common
 export PATH=$PATH:$HOME/dotfiles/scripts/i3
 export PATH=$PATH:$HOME/dotfiles/scripts/polybar
 export PATH=$PATH:$HOME/dotfiles/scripts/transmission

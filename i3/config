@@ -37,23 +37,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Sreen brightness controls // TODO: Fix this
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-
-# Music controls
-bindsym XF86AudioPlay exec --no-startup-id playerctl -p spotify play-pause
-bindsym XF86AudioPause exec --no-startup-id playerctl -p spotify play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl -p spotify next
-bindsym XF86AudioPrev exec --no-startup-id playerctl -p spotify previous
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -61,13 +44,8 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
 # kill focused window
 bindsym $mod+Shift+q kill
-
-bindsym $mod+space exec --no-startup-id dmenu_run -n -c -l 15
 
 # change focus
 bindsym $mod+h focus left
@@ -122,10 +100,6 @@ bindsym $mod+a focus parent
 # Show file manager
 bindsym $mod+g [class="Nemo"] scratchpad show
 
-# Bind Print to Flameshot
-bindsym Print exec flameshot gui
-bindsym ctrl+Print exec i3-win-capture activewindow
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -169,6 +143,10 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+for_window [class="StFloat"] floating enable
+for_window [class="plugin-flowace"] floating enable
+for_window [class="Nemo"] floating enable
 
 assign [class="Brave-browser"] $ws2
 assign [class="firefox"] $ws2
@@ -223,13 +201,16 @@ gaps inner 5px
 default_border pixel 0
 default_floating_border pixel 0
 
+# Launch sxhkd
+exec --no-startup-id sxhkd
+
 # Launch Polybar
 exec_always --no-startup-id i3-polybar
 
 # Resurrect PM2
 exec --no-startup-id pm2 resurrect
 
-# Launch Alacritty
+# Launch terminal
 exec --no-startup-id i3-sensible-terminal
 
 # Launch default browser
