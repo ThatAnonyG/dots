@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Launch Plex Media Player from Flatpak
+/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=Plex tv.plex.PlexDesktop

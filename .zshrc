@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 alias brewx86="arch --x86_64 /usr/local/Homebrew/bin/brew"
 
