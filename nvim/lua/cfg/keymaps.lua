@@ -79,3 +79,6 @@ keymap("i", "<ESC>", "<Nop>", build_opts({}))
 -- Buffer navigation
 keymap("n", "<S-Tab>", "<cmd>bprevious<CR>", build_opts({ desc = "Previous file in tab" }))
 keymap("n", "<Tab>", "<cmd>bnext<CR>", build_opts({ desc = "Next file in tab" }))
+
+-- Snapping code
+keymap("v", "<Leader>sc", ":Silicon<CR>", build_opts({ desc = "Snapshot code" }))

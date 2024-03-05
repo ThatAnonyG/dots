@@ -110,4 +110,9 @@ lazy.setup({
 		end,
 	}, -- github copilot
 	"norcalli/nvim-colorizer.lua", -- color code highlighter
+	{
+		"michaelrommel/nvim-silicon",
+		lazy = true,
+		cmd = "Silicon",
+	},
 })
