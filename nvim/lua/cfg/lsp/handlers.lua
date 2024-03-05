@@ -68,7 +68,7 @@ M.lsp_keymaps = function(bufnr)
 		return default_opts
 	end
 
-	local gmappings = {
+	local mappings = {
 		g = {
 			name = "Go to",
 			d = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
@@ -76,9 +76,12 @@ M.lsp_keymaps = function(bufnr)
 			i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to implementation" },
 			r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Go to references" },
 		},
+		K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
 	}
 
-	require("which-key").register(gmappings, {
+	local which_key = require("which-key")
+
+	which_key.register(mappings, {
 		mode = "n",
 		buffer = bufnr,
 		silent = true,
@@ -86,7 +89,7 @@ M.lsp_keymaps = function(bufnr)
 		nowait = true,
 	})
 
-	local mappings = {
+	local leader_mappings = {
 		l = {
 			name = "LSP",
 			a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -95,11 +98,10 @@ M.lsp_keymaps = function(bufnr)
 			k = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", "Previous diagnostic" },
 			q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quick fix" },
 			r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-			h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show function info" },
 			s = { "<cmd>Telescope lsp_document_symbols<CR>", "Search symbols" },
 		},
 	}
-	require("which-key").register(mappings, {
+	which_key.register(leader_mappings, {
 		mode = "n",
 		prefix = "<Leader>",
 		buffer = bufnr,

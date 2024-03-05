@@ -76,6 +76,7 @@ lazy.setup({
 	"hrsh7th/cmp-nvim-lsp", -- completion for LSPs
 	"hrsh7th/cmp-nvim-lua", -- completion for LUA
 	"saadparwaiz1/cmp_luasnip", -- snippet completion
+	"onsails/lspkind.nvim", -- lsp icons
 
 	-- LSP and Language Plugins
 	"neovim/nvim-lspconfig", -- enable the LSP

@@ -21,6 +21,7 @@ vim.opt.expandtab = true -- use spaces for tabs
 vim.opt.shiftwidth = 2 -- spaces used for indentation
 vim.opt.tabstop = 2 -- length of tabs
 vim.opt.number = true -- line numbering
+vim.opt.relativenumber = true -- relative line numbering
 vim.opt.cursorline = true -- line highlight
 vim.opt.numberwidth = 4 -- line number column width
 vim.opt.signcolumn = "yes" -- always show sign column
