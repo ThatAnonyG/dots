@@ -13,7 +13,7 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = false,
+		virtual_text = true,
 		signs = {
 			active = icons,
 		},
@@ -39,9 +39,6 @@ M.setup = function()
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 		border = "rounded",
 	})
-
-	vim.o.updatetime = 250
-	vim.cmd([[ autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus=false }) ]])
 end
 
 local function lsp_highlight_document(client)

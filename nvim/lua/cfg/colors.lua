@@ -2,7 +2,7 @@ local colorscheme = "catppuccin"
 
 if colorscheme == "catppuccin" then
 	require(colorscheme).setup({
-		transparent_background = true,
+		transparent_background = false,
 	})
 end
 

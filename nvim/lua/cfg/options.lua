@@ -35,7 +35,7 @@ vim.opt.timeoutlen = 300 -- timeout length
 vim.opt.autochdir = true -- auto change directory
 vim.opt.shortmess:append("c") -- Short messages option
 vim.opt.whichwrap:append("h,l,<,>,[,]") -- cursor behavior
-vim.g.copilot_no_tab_map = true -- disable tab mapping for copilot
+vim.g.copilot_no_tab_map = false -- disable tab mapping for copilot
 vim.g.vim_svelte_plugin_use_typescript = 1 -- use typescript for svelte
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
