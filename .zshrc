@@ -120,6 +120,7 @@ export NVM_DIR="$HOME/.nvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 ###-begin-pm2-completion-###
 ### credits to npm for the completion file model
 #
@@ -160,3 +161,27 @@ elif type compctl &>/dev/null; then
   compctl -K _pm2_completion + -f + pm2
 fi
 ###-end-pm2-completion-###
+
+# fzf
+eval "$(fzf --zsh)"
+source ~/fzf-git.sh/fzf-git.sh
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+_fzf_comprun() {
+  local cmd="$1"
+  shift
+
+  case "$cmd" in
+    cd) fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}" "$@" ;;
+    ssh) fzf --preview 'dig {}' "$@" ;;
+    tldr) fzf --preview 'tldr {}' "$@" ;;
+    *) fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}
+
+# fzf completion for tldr
+_fzf_complete_tldr() {
+  _fzf_complete --multi --reverse --prompt="> " -- "$@" < <(tldr -u >/dev/null && tldr -l | tr "'" '"' | jq -r '.[]')
+}
