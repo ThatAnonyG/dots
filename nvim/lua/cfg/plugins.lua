@@ -115,5 +115,6 @@ lazy.setup({
 		"michaelrommel/nvim-silicon",
 		lazy = true,
 		cmd = "Silicon",
-	},
+	}, -- code to image
+	"wellle/context.vim", -- context based highlighting
 })

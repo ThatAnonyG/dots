@@ -44,10 +44,10 @@ require("silicon").setup({
 	num_separator = "  ",
 	-- a string or function that defines the path to the output image
 	output = function()
-		return "~/Pictures/" .. os.date("!%Y-%m-%dT%H-%M-%S") .. "_code.png"
+		return "~/Pictures/" .. os.date("!%Y%m%d_%H%M%S") .. "_code.png"
 	end,
 	-- whether to put the image onto the clipboard, may produce an error if run on WSL2
-	to_clipboard = true,
+	to_clipboard = false,
 	-- the silicon command, put an absolute location here, if the command is not in your PATH
 	command = "silicon",
 	-- a string or function returning a string that defines the title showing in the image
