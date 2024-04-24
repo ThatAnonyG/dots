@@ -188,3 +188,6 @@ _fzf_complete_tldr() {
 
 # eza
 alias ls="eza --color=always --long --git --icons=always"
+
+# thefuck
+eval $(thefuck --alias fk)
