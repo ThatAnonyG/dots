@@ -185,3 +185,6 @@ _fzf_comprun() {
 _fzf_complete_tldr() {
   _fzf_complete --multi --reverse --prompt="> " -- "$@" < <(tldr -u >/dev/null && tldr -l | tr "'" '"' | jq -r '.[]')
 }
+
+# eza
+alias ls="eza --color=always --long --git --icons=always"
