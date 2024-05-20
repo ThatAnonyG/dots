@@ -101,7 +101,7 @@ lazy.setup({
 	-- "p00f/nvim-ts-rainbow", -- rainbow brackets
 	"JoosepAlviste/nvim-ts-context-commentstring", -- context aware comments
 	"numToStr/Comment.nvim", -- comment stuff
-	"lukas-reineke/indent-blankline.nvim", -- indentation lines
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- indentation lines
 	"windwp/nvim-autopairs", -- auto close brackets and quotes
 	-- "andweeb/presence.nvim", -- discord rich presence
 	{
