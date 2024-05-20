@@ -24,8 +24,8 @@ configs.setup({
 		extended_mode = true,
 		max_file_lines = nil,
 	},
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
+})
+
+require("ts_context_commentstring").setup({
+	enable_autocmd = false,
 })

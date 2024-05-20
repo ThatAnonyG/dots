@@ -14,7 +14,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({ extra_filetypes = { "svelte" } }),
 		formatting.stylua,
-		formatting.autopep8,
+		formatting.black,
 		diagnostics.markdownlint,
 	},
 	on_attach = lsp_handlers.on_attach,
