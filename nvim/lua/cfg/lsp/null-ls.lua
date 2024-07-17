@@ -15,6 +15,7 @@ null_ls.setup({
 		formatting.prettier.with({ extra_filetypes = { "svelte" } }),
 		formatting.stylua,
 		formatting.black,
+		formatting.shfmt.with({ extra_filetypes = { "bash" } }),
 		diagnostics.markdownlint,
 	},
 	on_attach = lsp_handlers.on_attach,

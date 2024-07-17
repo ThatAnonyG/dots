@@ -9,8 +9,9 @@ if not mason_lspconfig_status_ok then
 end
 
 local servers = {
+	"bashls",
 	"cssls",
-  "clangd",
+	"clangd",
 	"dockerls",
 	"docker_compose_language_service",
 	"elixirls",
