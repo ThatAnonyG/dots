@@ -30,9 +30,6 @@ vim.keymap.set("x", "<C-_>", function()
 	require("Comment.api").toggle.linewise(vim.fn.visualmode())
 end, build_opts({ desc = "Toggle comment" }))
 
--- Search and replace selection mode
-keymap("x", "<C-r>", "<cmd>SearchBoxReplace visual_mode=true<CR>", build_opts({ desc = "Replace in file" }))
-
 -- Window navigation
 keymap("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", build_opts({ desc = "Window left" }))
 keymap("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", build_opts({ desc = "Window down" }))
@@ -65,9 +62,6 @@ vim.cmd([[
 
 -- Open whichkey window
 keymap("n", "<Leader><Leader>", "<cmd>WhichKey<CR>", build_opts({ desc = "Whichkey menu" }))
-
--- Open floating cmdline
-keymap("n", ":", "<cmd>FineCmdline<CR>", build_opts({ desc = "Floating Neovim cmdline" }))
 
 -- Do not replace copied text
 keymap("v", "p", '"_dP', build_opts({}))

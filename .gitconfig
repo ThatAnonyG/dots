@@ -17,3 +17,5 @@
   colorMoved = default
 [safe]
 	directory = *
+[url "git@bitbucket.org:lawzo-git"]
+	insteadOf = https://bitbucket.org/lawzo-git

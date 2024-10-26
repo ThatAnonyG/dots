@@ -58,9 +58,6 @@ lazy.setup({
 		end,
 	}, -- improve load times
 	"goolord/alpha-nvim", -- startup dashboard
-	"MunifTanjim/nui.nvim", -- dependency for fine cmdline and searchbox
-	"VonHeikemen/fine-cmdline.nvim", -- floating cmdline
-	"VonHeikemen/searchbox.nvim", -- floating search bar
 	"folke/which-key.nvim", -- keybindings
 
 	-- Themes

@@ -55,8 +55,6 @@ local nmappings = {
 	s = {
 		name = "Search",
 		g = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Search globally" },
-		s = { "<cmd>SearchBoxIncSearch<CR>", "Find in file" },
-		r = { "<cmd>SearchBoxReplace<CR>", "Replace in file" },
 	},
 	b = {
 		name = "Buffer",
