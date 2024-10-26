@@ -2,7 +2,6 @@
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop;
 x-scheme-handler/magnet=torrent.desktop
 application/x-bittorrent=torrent.desktop
-x-scheme-handler/mailto=brave-browser.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/chrome=firefox.desktop
@@ -15,6 +14,9 @@ application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 image/png=org.gnome.gThumb.desktop
 inode/directory=nautilus.desktop
+x-scheme-handler/webcal=brave-browser.desktop
+video/x-matroska=vlc.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -29,3 +31,4 @@ application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 image/png=org.gnome.gThumb.desktop;
 application/zip=nemo.desktop;
+video/x-matroska=vlc.desktop;

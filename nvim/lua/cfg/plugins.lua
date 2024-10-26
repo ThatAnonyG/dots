@@ -114,4 +114,5 @@ lazy.setup({
 		cmd = "Silicon",
 	}, -- code to image
 	"wellle/context.vim", -- context based highlighting
+	"sindrets/diffview.nvim",
 })
