@@ -13,17 +13,45 @@ def main():
     while True:
         try:
             session_bus = dbus.SessionBus()
-            spotify_bus = session_bus.get_object(
-                'org.mpris.MediaPlayer2.spotify',
-                '/org/mpris/MediaPlayer2'
-            )
+            spotify_bus = None
+            firefox_bus = None
 
-            spotify_properties = dbus.Interface(
-                spotify_bus,
+            try:
+                spotify_bus = session_bus.get_object(
+                    'org.mpris.MediaPlayer2.spotify',
+                    '/org/mpris/MediaPlayer2'
+                )
+            except Exception as e:
+                pass
+
+            if spotify_bus is None:
+                try:
+                    sessions_list = session_bus.list_names()
+                    if sessions_list is None:
+                        sessions_list = []
+                    firefox_name = ""
+                    for session in sessions_list:
+                        if session.startswith("org.mpris.MediaPlayer2.firefox"):
+                            firefox_name = session
+                            break
+                    firefox_bus = session_bus.get_object(
+                        firefox_name,
+                        '/org/mpris/MediaPlayer2'
+                    )
+                except Exception as e:
+                    pass
+
+            if spotify_bus is None and firefox_bus is None:
+                print("No player running", flush=True)
+                time.sleep(1)
+                continue
+
+            player_properties = dbus.Interface(
+                firefox_bus,
                 'org.freedesktop.DBus.Properties'
             )
 
-            metadata = spotify_properties.Get(
+            metadata = player_properties.Get(
                 'org.mpris.MediaPlayer2.Player', 'Metadata'
             )
 
