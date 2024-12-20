@@ -191,3 +191,6 @@ alias ls="eza --color=always --long --git --icons=always"
 
 # thefuck
 eval $(thefuck --alias fk)
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
