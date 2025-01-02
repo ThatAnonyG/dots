@@ -25,6 +25,7 @@ local servers = {
 	"rust_analyzer",
 	"svelte",
 	"tailwindcss",
+	"terraformls",
 	"tsserver",
 	"yamlls",
 }

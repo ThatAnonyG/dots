@@ -16,6 +16,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.black,
 		formatting.shfmt.with({ extra_filetypes = { "bash" } }),
+		formatting.terraform_fmt,
 		diagnostics.markdownlint,
 	},
 	on_attach = lsp_handlers.on_attach,
