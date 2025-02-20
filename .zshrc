@@ -121,6 +121,9 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig"
+
 ###-begin-pm2-completion-###
 ### credits to npm for the completion file model
 #
