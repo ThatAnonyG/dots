@@ -114,23 +114,23 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 [title="Picture-in-Picture"] move to workspace number $ws1; workspace number $ws1; focus tiling
+bindsym $mod+2 [title="Picture-in-Picture"] move to workspace number $ws2; workspace number $ws2; focus tiling
+bindsym $mod+3 [title="Picture-in-Picture"] move to workspace number $ws3; workspace number $ws3; focus tiling
+bindsym $mod+4 [title="Picture-in-Picture"] move to workspace number $ws4; workspace number $ws4; focus tiling
+bindsym $mod+5 [title="Picture-in-Picture"] move to workspace number $ws5; workspace number $ws5; focus tiling
+bindsym $mod+6 [title="Picture-in-Picture"] move to workspace number $ws6; workspace number $ws6; focus tiling
+bindsym $mod+7 [title="Picture-in-Picture"] move to workspace number $ws7; workspace number $ws7; focus tiling
+bindsym $mod+8 [title="Picture-in-Picture"] move to workspace number $ws8; workspace number $ws8; focus tiling
+bindsym $mod+9 [title="Picture-in-Picture"] move to workspace number $ws9; workspace number $ws9; focus tiling
+bindsym $mod+0 [title="Picture-in-Picture"] move to workspace number $ws0; workspace number $ws0; focus tiling
 
 # move between last used workspaces
 bindsym $mod+Tab workspace back_and_forth 
 
 # move to next or prev workspace
-bindsym $alt+h workspace prev
-bindsym $alt+l workspace next
+bindsym $alt+h [title="Picture-in-Picture"] move to workspace prev; workspace prev; focus tiling
+bindsym $alt+l [title="Picture-in-Picture"] move to workspace next; workspace next; focus tiling
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -151,7 +151,7 @@ for_window [class="gnome-calculator"] floating enable
 assign [class="Brave-browser"] $ws2
 assign [class="firefox"] $ws2
 assign [class="discord"] $ws3
-assign [class="Spotify"] $ws4
+assign [class="DBeaver"] $ws4
 assign [class="Slack"] $ws5
 assign [class="Notion"] $ws6
 
@@ -219,8 +219,8 @@ exec --no-startup-id i3-open-browser
 # Launch Discord
 exec --no-startup-id discord
 
-# Launch Spotify
-exec --no-startup-id spotify-launcher
+# Launch DBeaver
+exec --no-startup-id dbeaver
 
 # Launch Slack
 exec --no-startup-id slack
