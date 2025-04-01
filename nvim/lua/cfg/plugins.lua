@@ -48,6 +48,7 @@ lazy.setup({
 		end,
 	}, -- fancy notifications
 	"nvim-tree/nvim-web-devicons", -- cool icons
+	{ "echasnovski/mini.icons", version = "*" }, -- icons for mini.nvim
 	"nvim-lualine/lualine.nvim", -- cool status line
 	"ahmedkhalf/project.nvim", -- easily access projects
 	{
