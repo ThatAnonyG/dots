@@ -62,47 +62,35 @@ M.lsp_keymaps = function(bufnr)
 		return default_opts
 	end
 
-	local mappings = {
-		g = {
-			name = "Go to",
-			d = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
-			D = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
-			i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Go to implementation" },
-			r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Go to references" },
-		},
-		K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
-	}
-
 	local which_key = require("which-key")
 
-	which_key.register(mappings, {
-		mode = "n",
-		buffer = bufnr,
-		silent = true,
-		noremap = true,
-		nowait = true,
-	})
+	---@cast which_key wk
 
+	---@type wk.Spec
 	local leader_mappings = {
-		l = {
-			name = "LSP",
-			a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-			d = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open diagnostic" },
-			j = { "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", "Next diagnostic" },
-			k = { "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", "Previous diagnostic" },
-			q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quick fix" },
-			r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-			s = { "<cmd>Telescope lsp_document_symbols<CR>", "Search symbols" },
-		},
-	}
-	which_key.register(leader_mappings, {
 		mode = "n",
-		prefix = "<Leader>",
 		buffer = bufnr,
 		silent = true,
 		noremap = true,
 		nowait = true,
-	})
+		{ "<Leader>l", group = "LSP" },
+		{ "<Leader>li", "<cmd>LspInfo<cr>", desc = "LSP Info" },
+		{ "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
+		{ "<Leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Open diagnostic" },
+		{ "<Leader>lj", "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", desc = "Previous diagnostic" },
+		{ "<Leader>lk", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", desc = "Next diagnostic" },
+		{ "<Leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Symbol rename" },
+		{ "<Leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Symbol search" },
+		{ "<Leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", desc = "Quickfix" },
+		{ "<Leader>g", group = "Go to" },
+		{ "<Leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to declaration" },
+		{ "<Leader>gD", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
+		{ "<Leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Go to implementation" },
+		{ "<Leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "Go to references" },
+		{ "<Leader>K", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
+	}
+
+	which_key.add(leader_mappings)
 
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
