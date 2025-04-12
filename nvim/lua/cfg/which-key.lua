@@ -15,16 +15,15 @@ local setup_opts = {
 			z = false,
 		},
 	},
-	key_labels = {
-		["<leader>"] = "Space",
-		["<space>"] = "Space",
-		["<cr>"] = "Enter",
-		["<tab>"] = "Tab",
-	},
 	layout = {
 		spacing = 5,
 	},
-	ignore_missing = true,
+	filter = function(mapping)
+		if mapping.desc and mapping.desc ~= "" then
+			return true
+		end
+		return false
+	end,
 	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
 }
 
