@@ -82,12 +82,12 @@ M.lsp_keymaps = function(bufnr)
 		{ "<Leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Symbol rename" },
 		{ "<Leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Symbol search" },
 		{ "<Leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", desc = "Quickfix" },
-		{ "<Leader>g", group = "Go to" },
-		{ "<Leader>gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to declaration" },
-		{ "<Leader>gD", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
-		{ "<Leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Go to implementation" },
-		{ "<Leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "Go to references" },
-		{ "<Leader>K", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
+		{ "g", group = "Go to" },
+		{ "gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to declaration" },
+		{ "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
+		{ "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Go to implementation" },
+		{ "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "Go to references" },
+		{ "K", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
 	}
 
 	which_key.add(leader_mappings)
