@@ -1,21 +1,31 @@
+local which_key = require("which-key")
+---@cast which_key wk
+
 local M = {}
 
 M.setup = function()
-	local icons = {
-		{ name = "DiagnosticSignError", hl = "DiagnosticVirtualTextError", text = "" },
-		{ name = "DiagnosticSignWarn", hl = "DiagnosticVirtualTextWarn", text = "" },
-		{ name = "DiagnosticSignHint", hl = "DiagnosticVirtualTextHint", text = "" },
-		{ name = "DiagnosticSignInfo", hl = "DiagnosticVirtualTextInfo", text = "" },
-	}
-
-	for _, icon in ipairs(icons) do
-		vim.fn.sign_define(icon.name, { texthl = icon.name, text = icon.text, numhl = icon.name, linehl = icon.hl })
-	end
-
+	---@type vim.diagnostic.Opts
 	local config = {
 		virtual_text = true,
 		signs = {
-			active = icons,
+			text = {
+				[vim.diagnostic.severity.ERROR] = "",
+				[vim.diagnostic.severity.WARN] = "",
+				[vim.diagnostic.severity.HINT] = "",
+				[vim.diagnostic.severity.INFO] = "",
+			},
+			numhl = {
+				[vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+				[vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+				[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+				[vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+			},
+			linehl = {
+				[vim.diagnostic.severity.ERROR] = "DiagnosticVirtualTextError",
+				[vim.diagnostic.severity.WARN] = "DiagnosticVirtualTextWarn",
+				[vim.diagnostic.severity.HINT] = "DiagnosticVirtualTextHint",
+				[vim.diagnostic.severity.INFO] = "DiagnosticVirtualTextInfo",
+			},
 		},
 		update_in_insert = true,
 		underline = false,
@@ -24,21 +34,13 @@ M.setup = function()
 			focusable = false,
 			style = "minimal",
 			border = "rounded",
-			source = "always",
+			source = true,
 			header = "",
 			prefix = "",
 		},
 	}
 
 	vim.diagnostic.config(config)
-
-	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded",
-	})
-
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded",
-	})
 end
 
 local function lsp_highlight_document(client)
@@ -62,10 +64,6 @@ M.lsp_keymaps = function(bufnr)
 		return default_opts
 	end
 
-	local which_key = require("which-key")
-
-	---@cast which_key wk
-
 	---@type wk.Spec
 	local leader_mappings = {
 		mode = "n",
@@ -77,8 +75,16 @@ M.lsp_keymaps = function(bufnr)
 		{ "<Leader>li", "<cmd>LspInfo<cr>", desc = "LSP Info" },
 		{ "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
 		{ "<Leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Open diagnostic" },
-		{ "<Leader>lj", "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", desc = "Previous diagnostic" },
-		{ "<Leader>lk", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", desc = "Next diagnostic" },
+		{
+			"<Leader>lj",
+			"<cmd>lua vim.diagnostic.jump({ count=-1, float=true, border = 'rounded' })<CR>",
+			desc = "Previous diagnostic",
+		},
+		{
+			"<Leader>lk",
+			"<cmd>lua vim.diagnostic.jump({ count=1, float=true, border = 'rounded' })<CR>",
+			desc = "Next diagnostic",
+		},
 		{ "<Leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Symbol rename" },
 		{ "<Leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Symbol search" },
 		{ "<Leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", desc = "Quickfix" },
@@ -87,7 +93,7 @@ M.lsp_keymaps = function(bufnr)
 		{ "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
 		{ "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Go to implementation" },
 		{ "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "Go to references" },
-		{ "K", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
+		{ "K", "<cmd>lua vim.lsp.buf.hover({ border = 'rounded' })<CR>", desc = "Hover" },
 	}
 
 	which_key.add(leader_mappings)
@@ -96,7 +102,7 @@ M.lsp_keymaps = function(bufnr)
 		bufnr,
 		"i",
 		"<C-k>",
-		"<cmd>lua vim.lsp.buf.signature_help()<CR>",
+		"<cmd>lua vim.lsp.buf.signature_help({ border = 'rounded' })<CR>",
 		build_opts({ desc = "Function signature help" })
 	)
 

@@ -19,11 +19,8 @@ configs.setup({
 	autotag = {
 		enable = true,
 	},
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		max_file_lines = nil,
-	},
+	auto_install = true,
+	modules = {},
 })
 
 require("ts_context_commentstring").setup({

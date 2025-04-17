@@ -40,6 +40,7 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "351e449683070a2bb946bbd603555faf5a195e9a" },
   "telescope-media-files.nvim": { "branch": "master", "commit": "0826c7a730bc4d36068f7c85cf4c5b3fd9fb570a" },
   "telescope.nvim": { "branch": "master", "commit": "a4ed82509cecc56df1c7138920a1aeaf246c0ac5" },
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },

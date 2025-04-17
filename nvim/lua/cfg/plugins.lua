@@ -96,12 +96,11 @@ lazy.setup({
 	"nvim-telescope/telescope-media-files.nvim", -- Telescope extension to view media files
 
 	-- Utility Plugins
-	-- "p00f/nvim-ts-rainbow", -- rainbow brackets
+	"HiPhish/rainbow-delimiters.nvim", -- rainbow brackets
 	"JoosepAlviste/nvim-ts-context-commentstring", -- context aware comments
 	"numToStr/Comment.nvim", -- comment stuff
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- indentation lines
 	"windwp/nvim-autopairs", -- auto close brackets and quotes
-	-- "andweeb/presence.nvim", -- discord rich presence
 	{
 		"github/copilot.vim",
 		config = function()
