@@ -9,5 +9,5 @@ lualine.setup({
 		icons_enabled = true,
 		disabled_filetypes = { "dashboard", "Outline" },
 	},
-	extensions = { "nvim-tree" },
+	extensions = { "nvim-tree", "nvim-dap-ui" },
 })

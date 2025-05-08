@@ -78,8 +78,8 @@ lazy.setup({
 
 	-- LSP and Language Plugins
 	"neovim/nvim-lspconfig", -- enable the LSP
-	"williamboman/mason.nvim", -- GUI installer for language servers
-	"williamboman/mason-lspconfig.nvim", -- LSP config for mason
+	{ "mason-org/mason.nvim", version = "1.11.0" }, -- GUI installer for language servers
+	{ "mason-org/mason-lspconfig.nvim", version = "1.32.0" }, -- LSP config for mason
 	"nvimtools/none-ls.nvim", -- for formatters and linters
 	"leafOfTree/vim-svelte-plugin", -- support for svelte
 	{
@@ -90,6 +90,12 @@ lazy.setup({
 	"L3MON4D3/LuaSnip", -- snippet engine
 	"rafamadriz/friendly-snippets", -- community snippets
 	"SmiteshP/nvim-navic", -- winbar context outline
+
+	-- Debugging
+	"mfussenegger/nvim-dap", -- debugging
+	"leoluz/nvim-dap-go", -- debugging for go
+	"nvim-neotest/nvim-nio", -- neotest for lua
+	"rcarriga/nvim-dap-ui", -- UI for nvim-dap
 
 	-- Telescope
 	"nvim-telescope/telescope.nvim", -- Telescope plugin
