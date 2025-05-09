@@ -1,6 +1,6 @@
 vim.opt.backup = false -- do not create backup files
 vim.opt.clipboard = "unnamedplus" -- allow 2 way usage of clipboard between vim and other apps
-vim.opt.cmdheight = 2 -- command line height
+vim.opt.cmdheight = 5 -- command line height
 vim.opt.completeopt = { "menuone", "noselect" } -- auto complete popup enabled and disable initial item selection
 vim.opt.fileencoding = "utf-8" -- use UTF-8 file encoding
 vim.opt.hlsearch = true -- highlight all search items

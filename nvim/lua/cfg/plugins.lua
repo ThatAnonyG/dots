@@ -92,10 +92,16 @@ lazy.setup({
 	"SmiteshP/nvim-navic", -- winbar context outline
 
 	-- Debugging
+	"jay-babu/mason-nvim-dap.nvim", -- mason for nvim-dap
 	"mfussenegger/nvim-dap", -- debugging
 	"leoluz/nvim-dap-go", -- debugging for go
 	"nvim-neotest/nvim-nio", -- neotest for lua
 	"rcarriga/nvim-dap-ui", -- UI for nvim-dap
+	{
+		"microsoft/vscode-js-debug",
+		build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+	},
+	{ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }, -- JS debugging
 
 	-- Telescope
 	"nvim-telescope/telescope.nvim", -- Telescope plugin
@@ -121,4 +127,8 @@ lazy.setup({
 	}, -- code to image
 	"wellle/context.vim", -- context based highlighting
 	"sindrets/diffview.nvim",
+	{
+		"Joakker/lua-json5",
+		build = "./install.sh",
+	},
 })

@@ -8,6 +8,11 @@ if not mason_lspconfig_status_ok then
 	return
 end
 
+local mason_nvim_dap_status_ok, mason_nvim_dap = pcall(require, "mason-nvim-dap")
+if not mason_nvim_dap_status_ok then
+	return
+end
+
 local servers = {
 	"bashls",
 	"cssls",
@@ -42,8 +47,13 @@ local settings = {
 	log_level = vim.log.levels.INFO,
 	max_concurrent_installers = 5,
 }
-
 mason.setup(settings)
+
+mason_nvim_dap.setup({
+	automatic_installation = true,
+	ensure_installed = { "js" },
+})
+
 mason_lspconfig.setup({
 	ensure_installed = servers,
 	automatic_installation = true,
