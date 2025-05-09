@@ -1,7 +1,6 @@
 require("filetype")
 require("cfg.options")
 require("cfg.plugins")
-require("cfg.keymaps")
 require("cfg.colors")
 require("cfg.cmp")
 require("cfg.lsp")

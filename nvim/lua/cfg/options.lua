@@ -50,3 +50,8 @@ if not path_to_desktop == nil then
 		{ pattern = "*", command = "cd " .. path_to_desktop, group = vim_enter_group }
 	)
 end
+
+-- Quit stuff with q
+vim.cmd([[
+  autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
+]])
