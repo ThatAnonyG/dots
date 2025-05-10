@@ -50,7 +50,7 @@ local mappings = {
 	{ "<Leader>de", run_dap("disconnect()"), desc = "Disconnect" },
 	{ "<Leader>dt", run_dap("terminate()"), desc = "Terminate" },
 	{ "<Leader>db", run_dap("toggle_breakpoint()"), desc = "Toggle breakpoint" },
-	{ "<Leader>dq", run_dap("set_breakpoint()"), desc = "Set breakpoint" },
+	{ "<Leader>dq", run_dap("clear_breakpoints()"), desc = "Clear breakpoint" },
 	{
 		"<Leader>dn",
 		run_dap('set_breakpoint(nil, nil, vim.fn.input("log point message: "))'),
@@ -65,12 +65,12 @@ local mappings = {
 }
 which_key.add(mappings)
 
+vim.api.nvim_set_hl(0, "DapStoppedHl", { fg = "#b4befe", bg = "#313244" })
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 vim.fn.sign_define(
-	"DapBreakpoint",
-	{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+	"DapStopped",
+	{ text = "", texthl = "DapStoppedHl", linehl = "DapStoppedHl", numhl = "DapStoppedHl" }
 )
-
-require("dap.ext.vscode").json_decode = require("json5").parse
 
 dap_vscode_js.setup({
 	debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
@@ -83,6 +83,7 @@ dap.adapters["pwa-node"] = {
 	port = 8123,
 	executable = {
 		command = "js-debug-adapter",
+		args = { "8123", "127.0.0.1" },
 	},
 }
 

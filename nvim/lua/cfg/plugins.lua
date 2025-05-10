@@ -127,8 +127,4 @@ lazy.setup({
 	}, -- code to image
 	"wellle/context.vim", -- context based highlighting
 	"sindrets/diffview.nvim",
-	{
-		"Joakker/lua-json5",
-		build = "./install.sh",
-	},
 })
