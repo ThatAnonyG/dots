@@ -126,5 +126,9 @@ lazy.setup({
 		cmd = "Silicon",
 	}, -- code to image
 	"wellle/context.vim", -- context based highlighting
-	"sindrets/diffview.nvim",
+	"sindrets/diffview.nvim", -- diff view for git
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	}, -- colored comments
 })
