@@ -3,6 +3,7 @@ export PATH=$PATH:$HOME/dotfiles/scripts/common
 export PATH=$PATH:$HOME/dotfiles/scripts/i3
 export PATH=$PATH:$HOME/dotfiles/scripts/polybar
 export PATH=$PATH:$HOME/dotfiles/scripts/transmission
+export PATH=$PATH:$HOME/dotfiles/scripts/hyprland
 
 # Default terminal
 export TERMINAL=st
