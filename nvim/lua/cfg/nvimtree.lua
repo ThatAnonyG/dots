@@ -24,6 +24,8 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy a file path (relative)"))
 	vim.keymap.set("n", "<C-y>", api.fs.copy.absolute_path, opts("Copy a file path (absolute)"))
 	vim.keymap.set("n", "<C-x>", api.fs.clear_clipboard, opts("Clear clipboard"))
+	vim.keymap.set("n", "I", api.tree.toggle_gitignore_filter, opts("Toggle Git Ignored"))
+	vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Hidden Files"))
 end
 
 nvim_tree.setup({
