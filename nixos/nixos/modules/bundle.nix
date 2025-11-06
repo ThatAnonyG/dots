@@ -5,6 +5,5 @@
     ./users.nix
     ./networkmanager.nix
     ./hyprland.nix
-    ./services.nix
   ];
 }
