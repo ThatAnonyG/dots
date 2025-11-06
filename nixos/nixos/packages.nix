@@ -1,15 +1,38 @@
 { pkgs, pkgs-stable, ... }: {
   environment.systemPackages = with pkgs; [
-	vim
-	kitty
-	tmux
+        # Essential
 	zsh
-	wofi
 	git
-	neovim
+        wget
+
+        # Rice software
+	wofi
 	waybar
 
-	# From the stable branch
+	# Terminals
+	kitty
+
+	# Editors
+	vim
+	neovim
+
+	# Terminal tools
+	tmux
+	fzf
+	eza
+	zoxide
+	starship
+        bat
+        delta
+
+        # Build essentials
+        pkg-config
+    gnumake
+    gcc
+
+	# From the stable branch #
+
+	# Browsers
 	pkgs-stable.google-chrome
   ];
 }

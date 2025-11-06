@@ -194,6 +194,3 @@ _fzf_complete_tldr() {
 # eza
 alias ls="eza --color=always --long --git --icons=always"
 alias ssofl="aws sso login --sso-session flowace"
-
-# thefuck
-eval $(thefuck --alias fk)

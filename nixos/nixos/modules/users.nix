@@ -12,5 +12,8 @@
     };
   };
 
-  services.getty.autologinUser = "anon";
+  services.getty = {
+    autologinUser = "anon";
+    loginProgram = "${pkgs.hyprland}/bin/Hyprland";
+  };
 }
