@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./modules/bundle.nix
@@ -9,7 +9,7 @@
     homeDirectory = "/home/anon";
     stateVersion = "25.05";
     sessionPath = [
-      "$HOME/dots/scripts/hyprland"
+      "${config.home.homeDirectory}/dots/scripts/hyprland"
     ];
   };
 }

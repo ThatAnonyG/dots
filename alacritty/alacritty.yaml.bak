@@ -8,8 +8,6 @@ window:
     y: 10
   startup_mode: Maximized
   dynamic_title: false
-  scrolling:
-    history: 50000
   opacity: 0.80
 
 font:

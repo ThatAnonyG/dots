@@ -6,5 +6,6 @@
     ./networkmanager.nix
     ./hyprland.nix
     ./gc.nix
+    ./ld.nix
   ];
 }

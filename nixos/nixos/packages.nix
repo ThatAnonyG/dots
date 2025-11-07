@@ -1,38 +1,75 @@
 { pkgs, pkgs-stable, ... }: {
   environment.systemPackages = with pkgs; [
-        # Essential
-	zsh
-	git
-        wget
+    # System essentials
+	  zsh
+	  git
+    wget
+    zip
+    unzip
+    usbutils
+    pciutils
+    net-tools
+    libinput
+    lshw
 
-        # Rice software
-	wofi
-	waybar
+    # Rice software
+	  wofi
+	  waybar
+    brightnessctl
+    playerctl
 
-	# Terminals
-	kitty
+	  # Terminals
+    alacritty
+	  kitty
 
-	# Editors
-	vim
-	neovim
+	  # Editors
+	  vim
+	  neovim
 
-	# Terminal tools
-	tmux
-	fzf
-	eza
-	zoxide
-	starship
-        bat
-        delta
+	  # Terminal tools
+	  tmux
+	  fzf
+	  eza
+	  zoxide
+	  starship
+    bat
+    delta
+    shfmt
+    gopls
+    lazygit
+    stylua
+    black
+    ripgrep
 
-        # Build essentials
-        pkg-config
+    # Build essentials
+    pkg-config
     gnumake
     gcc
 
-	# From the stable branch #
+    # Developer stuff
+    nodejs_22
+    go
 
-	# Browsers
-	pkgs-stable.google-chrome
+    # NPM Packages
+    nodePackages.typescript
+    nodePackages.eslint
+    nodePackages.prettier
+    nodePackages.nodemon
+
+	  # From the stable branch #
+
+	  # Browsers
+	  pkgs-stable.google-chrome
+  ];
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    fira-code
+    fira-code-symbols
+    font-awesome
+    jetbrains-mono
+
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 }

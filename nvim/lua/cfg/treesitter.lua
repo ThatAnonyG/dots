@@ -6,7 +6,7 @@ end
 configs.setup({
 	ensure_installed = "all",
 	sync_install = false,
-	ignore_install = { "" },
+	ignore_install = { "ipkg" },
 	highlight = {
 		enable = true,
 		disable = { "" },

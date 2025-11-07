@@ -15,5 +15,10 @@
       echo "Cloning zsh-syntax-highlighting..."
       ${pkgs.git}/bin/git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     fi
+
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+      echo "Cloning tmux tpm..."
+      ${pkgs.git}/bin/git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+    fi
   '';
 }
