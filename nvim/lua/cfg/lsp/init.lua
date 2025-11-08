@@ -7,3 +7,6 @@ end
 require("cfg.lsp.mason")
 require("cfg.lsp.handlers").setup()
 require("cfg.lsp.null-ls")
+
+-- Servers directly using lspconfig can be configured here
+require("cfg.lsp.settings.nixd")

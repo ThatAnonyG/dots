@@ -11,10 +11,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
-    let
-      system = "x86_64-linux";
-    in {
+  outputs = {
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations.atlas = nixpkgs.lib.nixosSystem {
       specialArgs = {
         pkgs-stable = import nixpkgs-stable {
@@ -25,16 +29,15 @@
       };
 
       modules = [
-	./nixos/configuration.nix
-
+        ./nixos/configuration.nix
         home-manager.nixosModules.home-manager
-	{
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-	  home-manager.users.anon = {
-	    imports = [ ./home-manager/home.nix ];
-	  };
-	}
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.anon = {
+            imports = [./home-manager/home.nix];
+          };
+        }
       ];
     };
   };

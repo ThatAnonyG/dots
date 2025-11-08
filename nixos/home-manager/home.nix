@@ -1,5 +1,4 @@
-{ config, lib, pkgs, ... }:
-{
+{config, ...}: {
   imports = [
     ./modules/bundle.nix
   ];

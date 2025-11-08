@@ -2,6 +2,7 @@
   home.file = {
     # WM
     ".config/hypr".source = ../../../hypr;
+    ".config/waybar".source = ../../../waybar;
 
     # ZSH related
     ".zshrc".source = ../../../.zshrc;

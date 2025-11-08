@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.zsh.enable = true;
 
   users = {
@@ -7,8 +7,7 @@
     users.anon = {
       isNormalUser = true;
       description = "Anony";
-      extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" ];
-      packages = with pkgs; [];
+      extraGroups = ["networkmanager" "wheel" "input" "libvirtd"];
     };
   };
 

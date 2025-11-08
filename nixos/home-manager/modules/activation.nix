@@ -1,6 +1,9 @@
-{ lib, pkgs, ... }:
 {
-  home.activation.ensureZshRepos = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  lib,
+  pkgs,
+  ...
+}: {
+  home.activation.ensureZshRepos = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
       echo "Cloning oh-my-zsh..."
       ${pkgs.git}/bin/git clone --branch master --depth 1 https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"

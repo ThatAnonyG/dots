@@ -1,8 +1,12 @@
-{ pkgs, pkgs-stable, ... }: {
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     # System essentials
-	  zsh
-	  git
+    zsh
+    git
     wget
     zip
     unzip
@@ -11,27 +15,31 @@
     net-tools
     libinput
     lshw
+    nautilus
+    wev
 
     # Rice software
-	  wofi
-	  waybar
+    wofi
     brightnessctl
     playerctl
+    dunst
 
-	  # Terminals
+    # Terminals
     alacritty
-	  kitty
+    kitty
 
-	  # Editors
-	  vim
-	  neovim
+    # Editors
+    vim
+    neovim
+    nixd
+    alejandra
 
-	  # Terminal tools
-	  tmux
-	  fzf
-	  eza
-	  zoxide
-	  starship
+    # Terminal tools
+    tmux
+    fzf
+    eza
+    zoxide
+    starship
     bat
     delta
     shfmt
@@ -56,10 +64,10 @@
     nodePackages.prettier
     nodePackages.nodemon
 
-	  # From the stable branch #
+    # From the stable branch #
 
-	  # Browsers
-	  pkgs-stable.google-chrome
+    # Browsers
+    pkgs-stable.google-chrome
   ];
 
   # Fonts
