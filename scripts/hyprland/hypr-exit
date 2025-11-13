@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 hyprctl dispatch exit &
 sleep 5

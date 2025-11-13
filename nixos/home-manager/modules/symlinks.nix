@@ -3,9 +3,11 @@
     # WM
     ".config/hypr".source = ../../../hypr;
     ".config/waybar".source = ../../../waybar;
+    ".config/dunst".source = ../../../dunst;
 
     # ZSH related
     ".zshrc".source = ../../../.zshrc;
+    ".zprofile".source = ../../../.zprofile;
 
     # Shell stuff
     ".config/starship.toml".source = ../../../starship.toml;

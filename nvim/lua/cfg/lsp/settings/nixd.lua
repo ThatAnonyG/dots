@@ -1,4 +1,4 @@
-require("lspconfig").nixd.setup({
+return {
 	cmd = { "nixd" },
 	settings = {
 		nixd = {
@@ -18,4 +18,4 @@ require("lspconfig").nixd.setup({
 			},
 		},
 	},
-})
+}

@@ -10,9 +10,4 @@
       extraGroups = ["networkmanager" "wheel" "input" "libvirtd"];
     };
   };
-
-  services.getty = {
-    autologinUser = "anon";
-    loginProgram = "${pkgs.hyprland}/bin/Hyprland";
-  };
 }

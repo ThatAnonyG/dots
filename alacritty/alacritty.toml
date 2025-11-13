@@ -16,8 +16,7 @@ mods = "Control"
 
 [general]
 import = [
-  "~/dotfiles/alacritty/themes/catppuccin/catppuccin-mocha.toml",
-  "~/dots/alacritty/themes/catppuccin/catppuccin-mocha.toml"
+  "~/dotfiles/alacritty/themes/catppuccin/catppuccin-mocha.toml"
 ]
 
 [window]

@@ -14,6 +14,7 @@
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
+  boot.initrd.systemd.enable = true;
   boot.extraModulePackages = [];
 
   hardware.graphics.enable = true;
@@ -35,8 +36,13 @@
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/d575d94f-0d51-47cb-95a5-fff69dda61fa";}
+    {
+      device = "/dev/sda4";
+    }
   ];
+
+  # Hibernate support
+  boot.resumeDevice = "/dev/sda4";
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

@@ -3,15 +3,20 @@
   "position": "top",
   "margin-bottom": -10,
   "spacing": 0,
-  "modules-left": ["hyprland/workspaces", "custom/uptime", "cpu"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/uptime",
+    "cpu",
+    "custom/pomodoro",
+  ],
   "modules-center": ["clock"],
   "modules-right": [
-    "custom/pomodoro",
     "bluetooth",
     "network",
     "pulseaudio",
     "backlight",
     "battery",
+    "custom/lock",
   ],
   "hyprland/workspaces": {
     "format": "{name}: {icon}",
@@ -72,7 +77,7 @@
     "format-icon": [""],
     "tooltip": false,
     "interval": 1600,
-    "exec": "$HOME/dots/scripts/waybar/uptime",
+    "exec": "$HOME/dotfiles/scripts/waybar/uptime",
   },
   "backlight": {
     "format": "{icon}  {percent}%",

@@ -17,12 +17,19 @@
     lshw
     nautilus
     wev
+    networkmanagerapplet
+    procps
+    libnotify
+    pavucontrol
 
     # Rice software
     wofi
     brightnessctl
     playerctl
     dunst
+    hyprlock
+    hypridle
+    hyprpaper
 
     # Terminals
     alacritty
@@ -53,6 +60,8 @@
     pkg-config
     gnumake
     gcc
+    gcc.cc.lib
+    glibc
 
     # Developer stuff
     nodejs_22
@@ -68,6 +77,7 @@
 
     # Browsers
     pkgs-stable.google-chrome
+    pkgs-stable.discord
   ];
 
   # Fonts
