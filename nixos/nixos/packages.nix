@@ -15,12 +15,19 @@
     net-tools
     libinput
     lshw
-    nautilus
     wev
-    networkmanagerapplet
     procps
     libnotify
+    dmidecode
+    polkit_gnome
+    xhost
+
+    # Good software
+    gparted
+    nautilus
+    networkmanagerapplet
     pavucontrol
+    nextcloud-client
 
     # Rice software
     wofi
@@ -35,11 +42,9 @@
     alacritty
     kitty
 
-    # Editors
+    # Editor stuff
     vim
     neovim
-    nixd
-    alejandra
 
     # Terminal tools
     tmux
@@ -60,12 +65,19 @@
     pkg-config
     gnumake
     gcc
-    gcc.cc.lib
     glibc
+    cmake
 
     # Developer stuff
+    python313
     nodejs_22
     go
+    rustup
+    nixd
+    alejandra
+
+    # Python Packages
+    python313Packages.pip
 
     # NPM Packages
     nodePackages.typescript
@@ -75,9 +87,9 @@
 
     # From the stable branch #
 
-    # Browsers
     pkgs-stable.google-chrome
     pkgs-stable.discord
+    pkgs-stable.bitwarden-desktop
   ];
 
   # Fonts

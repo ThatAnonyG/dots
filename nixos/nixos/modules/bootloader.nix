@@ -4,10 +4,11 @@
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelParams = [
     "psmouse.synaptics_intertouch=0"
-    "initcall_debug"
-    "no_console_suspend"
-    "log_buf_len=16M"
-    "pm_debug_messages"
-    "ignore_loglevel"
+    "amdgpu.aspm=0"
+    "amdgpu.runpm=0"
+    "amdgpu.bapm=0"
   ];
+  boot.extraModprobeConfig = ''
+    options usbcore autosuspend=-1
+  '';
 }

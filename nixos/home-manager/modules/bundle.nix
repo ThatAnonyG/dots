@@ -5,5 +5,6 @@
     ./waybar.nix
     ./dunst.nix
     ./hypridle.nix
+    ./polkit.nix
   ];
 }

@@ -6,4 +6,4 @@
 	url = https://github.com/ThatAnonyG/st.git
 [submodule "dmenu"]
 	path = dmenu
-	url = https://github.com/ThatAnonyG/dmenu.git
+  url = https://github.com/ThatAnonyG/dmenu.git

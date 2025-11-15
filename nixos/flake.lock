@@ -56,7 +56,24 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs-stable": "nixpkgs-stable",
+        "synaTudor": "synaTudor"
+      }
+    },
+    "synaTudor": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763184869,
+        "narHash": "sha256-z9FfXDP5lsr2aIR3GlT3g0rcgSF7YgrsWSriSfcR1Rs=",
+        "owner": "ThatAnonyG",
+        "repo": "synaTudor",
+        "rev": "b74f44c63a433cc9e01377339ae2a8137bdd7634",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ThatAnonyG",
+        "repo": "synaTudor",
+        "type": "github"
       }
     }
   },

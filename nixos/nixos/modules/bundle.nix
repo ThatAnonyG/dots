@@ -12,5 +12,7 @@
     ./bluetooth.nix
     ./logind.nix
     ./sleep.nix
+    ./fprint.nix
+    ./polkit.nix
   ];
 }

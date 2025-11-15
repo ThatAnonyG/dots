@@ -11,12 +11,12 @@
   ],
   "modules-center": ["clock"],
   "modules-right": [
+    "tray",
     "bluetooth",
     "network",
     "pulseaudio",
     "backlight",
     "battery",
-    "custom/lock",
   ],
   "hyprland/workspaces": {
     "format": "{name}: {icon}",
@@ -107,6 +107,10 @@
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": ["", "", "", "", ""],
+  },
+  "tray": {
+    "icon-size": 16,
+    "max-icons": 5,
   },
   "custom/lock": {
     "tooltip": false,

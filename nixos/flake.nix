@@ -4,10 +4,13 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    synaTudor = {
+      url = "github:ThatAnonyG/synaTudor";
+      flake = false;
     };
   };
 
@@ -18,6 +21,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    pkgs = import nixpkgs {inherit system;};
   in {
     nixosConfigurations.atlas = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -39,6 +43,10 @@
           };
         }
       ];
+    };
+
+    devShells.${system} = {
+      c = import ./shells/c.nix {inherit pkgs;};
     };
   };
 }
