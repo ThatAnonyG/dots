@@ -13,11 +13,4 @@ in {
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = synaTudorPkg;
-
-  security.pam.services = {
-    login.fprintAuth = true;
-    sudo.fprintAuth = true;
-    polkit-1.fprintAuth = true;
-    hyprlock.fprintAuth = true;
-  };
 }

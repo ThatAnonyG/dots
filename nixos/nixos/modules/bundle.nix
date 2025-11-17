@@ -14,5 +14,7 @@
     ./sleep.nix
     ./fprint.nix
     ./polkit.nix
+    ./security.nix
+    ./opengl.nix
   ];
 }

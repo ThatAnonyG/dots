@@ -9,7 +9,9 @@ export PATH=$PATH:$HOME/dotfiles/scripts/waybar
 if [[ "$(tty)" = "/dev/tty1" ]]; then
   # Now depends whether we are running NixOS or not
   if [ -f /etc/NIXOS ]; then
-    pgrep hyprland || dbus-run-session Hyprland
+    if uwsm check may-start && uwsm select; then
+      exec uwsm start default
+    fi
   else
     # Default terminal
     export TERMINAL=st

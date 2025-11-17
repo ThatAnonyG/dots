@@ -21,6 +21,8 @@
     dmidecode
     polkit_gnome
     xhost
+    libglvnd
+    mesa-demos
 
     # Good software
     gparted
@@ -28,6 +30,7 @@
     networkmanagerapplet
     pavucontrol
     nextcloud-client
+    bitwarden-desktop
 
     # Rice software
     wofi
@@ -89,7 +92,6 @@
 
     pkgs-stable.google-chrome
     pkgs-stable.discord
-    pkgs-stable.bitwarden-desktop
   ];
 
   # Fonts
