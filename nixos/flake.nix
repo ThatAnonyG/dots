@@ -47,6 +47,8 @@
 
     devShells.${system} = {
       c = import ./shells/c.nix {inherit pkgs;};
+      node22 = import ./shells/node22.nix {inherit pkgs;};
+      electron = import ./shells/electron.nix {inherit pkgs;};
     };
   };
 }

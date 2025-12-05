@@ -23,6 +23,7 @@
     xhost
     libglvnd
     mesa-demos
+    imagemagick
 
     # Good software
     gparted
@@ -31,6 +32,10 @@
     pavucontrol
     nextcloud-client
     bitwarden-desktop
+    insomnia
+    dbeaver-bin
+    wireguard-tools
+    flameshot
 
     # Rice software
     wofi
@@ -63,6 +68,8 @@
     stylua
     black
     ripgrep
+    fd
+    jq
 
     # Build essentials
     pkg-config
@@ -92,6 +99,8 @@
 
     pkgs-stable.google-chrome
     pkgs-stable.discord
+    pkgs-stable.slack
+    pkgs-stable.vscode
   ];
 
   # Fonts

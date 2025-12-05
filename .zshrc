@@ -191,6 +191,25 @@ _fzf_complete_tldr() {
   _fzf_complete --multi --reverse --prompt="> " -- "$@" < <(tldr -u >/dev/null && tldr -l | tr "'" '"' | jq -r '.[]')
 }
 
+nd() {
+  local flake_dir="$HOME/dotfiles/nixos"
+  local system=$(nix eval --impure --expr 'builtins.currentSystem' --raw)
+  local shells=$(nix flake show "$flake_dir" --json \
+    | jq -r --arg system "$system" '.devShells[$system] | keys[]' 2>/dev/null)
+
+  if [[ -z "$shells" ]]; then
+    echo "No devShells found in flake."
+    return 1
+  fi
+
+  local choice=$(echo "$shells" | fzf --prompt="Select shell > ")
+
+  [[ -z "$choice" ]] && return 1
+
+  echo "Launching nix develop for: $choice"
+  nix develop "$flake_dir#$choice"
+}
+
 # eza
 alias ls="eza --color=always --long --git --icons=always"
 alias ssofl="aws sso login --sso-session flowace"
