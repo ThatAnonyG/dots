@@ -14,12 +14,11 @@ def main():
         try:
             session_bus = dbus.SessionBus()
             spotify_bus = None
-            firefox_bus = None
+            browser_bus = None
 
             try:
                 spotify_bus = session_bus.get_object(
-                    'org.mpris.MediaPlayer2.spotify',
-                    '/org/mpris/MediaPlayer2'
+                    "org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2"
                 )
             except Exception as e:
                 pass
@@ -29,37 +28,49 @@ def main():
                     sessions_list = session_bus.list_names()
                     if sessions_list is None:
                         sessions_list = []
-                    firefox_name = ""
+                    browser_session = ""
                     for session in sessions_list:
-                        if session.startswith("org.mpris.MediaPlayer2.firefox"):
-                            firefox_name = session
+                        if session.startswith(
+                            "org.mpris.MediaPlayer2.firefox"
+                        ) or session.startswith("org.mpris.MediaPlayer2.chromium"):
+                            browser_session = session
                             break
-                    firefox_bus = session_bus.get_object(
-                        firefox_name,
-                        '/org/mpris/MediaPlayer2'
+                    browser_bus = session_bus.get_object(
+                        browser_session, "/org/mpris/MediaPlayer2"
                     )
                 except Exception as e:
                     pass
 
-            if spotify_bus is None and firefox_bus is None:
+            if spotify_bus is None and browser_bus is None:
                 print("No player running", flush=True)
                 time.sleep(1)
                 continue
 
+            # Spotify > Chrome > Firefox
+            final_bus = spotify_bus if spotify_bus is not None else browser_bus
+
             player_properties = dbus.Interface(
-                firefox_bus,
-                'org.freedesktop.DBus.Properties'
+                final_bus, "org.freedesktop.DBus.Properties"
             )
 
             metadata = player_properties.Get(
-                'org.mpris.MediaPlayer2.Player', 'Metadata'
+                "org.mpris.MediaPlayer2.Player", "Metadata"
             )
 
-            track_title = metadata['xesam:title']
+            # If not playing, skip
+            playback_status = player_properties.Get(
+                "org.mpris.MediaPlayer2.Player", "PlaybackStatus"
+            )
+            if playback_status == "Stopped":
+                print("No player running", flush=True)
+                time.sleep(1)
+                continue
+
+            track_title = metadata["xesam:title"]
             if track_title is None or track_title == "":
                 track_title = "Unknown"
 
-            track_artist = metadata['xesam:artist']
+            track_artist = metadata["xesam:artist"]
             if track_artist is None or len(track_artist) == 0 or track_artist[0] == "":
                 track_artist = "Unknown"
             else:
@@ -104,7 +115,7 @@ def main():
             print(print_str, flush=True)
         except Exception as e:
             if isinstance(e, dbus.exceptions.DBusException):
-                if e.get_dbus_name() == 'org.freedesktop.DBus.Error.ServiceUnknown':
+                if e.get_dbus_name() == "org.freedesktop.DBus.Error.ServiceUnknown":
                     print("No player running", flush=True)
             else:
                 print(e)
