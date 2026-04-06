@@ -43,6 +43,7 @@ lazy.setup({
 				render = "compact",
 				background_colour = "FloatShadow",
 				timeout = 3000,
+				top_down = false,
 			})
 			vim.notify = notify
 		end,

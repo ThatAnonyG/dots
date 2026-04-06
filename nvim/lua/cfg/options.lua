@@ -55,3 +55,7 @@ end
 vim.cmd([[
   autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
 ]])
+
+vim.opt.grepprg = "rg --vimgrep --smart-case --hidden --glob '!node_modules/**' --glob '!dist/**'"
+
+vim.opt.grepformat = "%f:%l:%c:%m"

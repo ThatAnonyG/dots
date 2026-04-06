@@ -123,8 +123,15 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/opt/homebrew/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig"
+pkgconfig_dirs=(
+  /opt/homebrew/lib/pkgconfig
+  /opt/homebrew/opt/libffi/lib/pkgconfig
+  /usr/lib/pkgconfig
+  /opt/local/lib/pkgconfig
+  /usr/X11/lib/pkgconfig
+)
+# zsh arrays need to be joined with colons for env vars
+export PKG_CONFIG_PATH="${(j/:/)pkgconfig_dirs}"
 
 ###-begin-pm2-completion-###
 ### credits to npm for the completion file model
@@ -197,3 +204,9 @@ alias ssofl="aws sso login --sso-session flowace"
 
 # thefuck
 eval $(thefuck --alias fk)
+
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export SSH_AUTH_SOCK=$(lsof -U 2>/dev/null | grep ssh-agent | awk '{print $NF}' | head -1)
+  ssh-add -L 2>/dev/null | grep -q "PIV" || ssh-add -s /usr/local/lib/libykcs11.dylib
+fi

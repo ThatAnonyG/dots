@@ -163,6 +163,9 @@ local vmappings = {
 	-- Stay in indent mode
 	{ "<", "<gv", desc = "Indent block to left" },
 	{ ">", ">gv", desc = "Indent block to right" },
+	-- Move lines up and down
+	{ "J", ":m '>+1<CR>gv=gv", desc = "Move selection down" },
+	{ "K", ":m '<-2<CR>gv=gv", desc = "Move selection up" },
 	-- Do not replace copied text
 	{ "p", '"_dP' },
 }

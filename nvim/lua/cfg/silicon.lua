@@ -47,7 +47,7 @@ require("silicon").setup({
 		return "~/Pictures/" .. os.date("!%Y%m%d_%H%M%S") .. "_code.png"
 	end,
 	-- whether to put the image onto the clipboard, may produce an error if run on WSL2
-	to_clipboard = false,
+	to_clipboard = true,
 	-- the silicon command, put an absolute location here, if the command is not in your PATH
 	command = "silicon",
 	-- a string or function returning a string that defines the title showing in the image
