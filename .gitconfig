@@ -3,7 +3,7 @@
 [user]
 	name = Ratul Saha
 	email = contact@ratulsaha.me
-	signingkey = key::ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFH9Hjfboj1Id6q4ftTqGn7MjjXp2ugzRfWhcpY08SH9JxVdAD7NbRa0PAJArMZSEAuaIM0SPi5E5wLOwljrw5U= Public key for Digital Signature
+	signingkey = 70663DDFA022DB227346797C537D9513A64EA3D4
 [core]
   editor = nvim
   pager = delta
@@ -21,10 +21,7 @@
 	directory = *
 [url "git@bitbucket.org:lawzo-git"]
 	insteadOf = https://bitbucket.org/lawzo-git
-[gpg]
-	format = ssh
 [commit]
-	gpgsign = true
-[gpg "ssh"]
-	program = /opt/homebrew/opt/openssh/bin/ssh-keygen
-	allowedSignersFile = /Users/ratulsaha/.ssh/allowed_signers
+	gpgsign = false
+[gpg]
+	program = gpg
