@@ -73,17 +73,11 @@ which_key.add({
 -- Comment
 which_key.add({
 	"<C-_>",
-	'<cmd>lua require("Comment.api").toggle.linewise.current()<CR>',
-	mode = "i",
-	desc = "Toggle comment",
-})
-which_key.add({
-	"<C-_>",
 	function()
-		vim.api.nvim_feedkeys(esc, "nx", false)
-		require("Comment.api").toggle.linewise(vim.fn.visualmode())
+		local line = vim.fn.line(".")
+		require("mini.comment").toggle_lines(line, line)
 	end,
-	mode = "x",
+	mode = "i",
 	desc = "Toggle comment",
 })
 

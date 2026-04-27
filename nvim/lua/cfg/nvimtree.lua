@@ -24,8 +24,6 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy a file path (relative)"))
 	vim.keymap.set("n", "<C-y>", api.fs.copy.absolute_path, opts("Copy a file path (absolute)"))
 	vim.keymap.set("n", "<C-x>", api.fs.clear_clipboard, opts("Clear clipboard"))
-	vim.keymap.set("n", "I", api.tree.toggle_gitignore_filter, opts("Toggle Git Ignored"))
-	vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Hidden Files"))
 end
 
 nvim_tree.setup({
@@ -34,11 +32,13 @@ nvim_tree.setup({
 	hijack_netrw = true,
 	open_on_tab = false,
 	hijack_cursor = false,
-	update_cwd = true,
+	update_cwd = false,
 	hijack_directories = {
 		enable = true,
 		auto_open = true,
 	},
+	sync_root_with_cwd = false,
+	respect_buf_cwd = false,
 	diagnostics = {
 		enable = true,
 		icons = {
@@ -50,12 +50,12 @@ nvim_tree.setup({
 	},
 	update_focused_file = {
 		enable = true,
-		update_cwd = true,
+		update_cwd = false,
 		ignore_list = {},
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		timeout = 500,
 	},
 	view = {
@@ -97,3 +97,5 @@ nvim_tree.setup({
 		},
 	},
 })
+
+vim.api.nvim_set_hl(0, "NvimTreeGitIgnoredHL", { fg = "#6c7086" })

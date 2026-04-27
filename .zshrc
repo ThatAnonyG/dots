@@ -208,5 +208,5 @@ eval $(thefuck --alias fk)
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export SSH_AUTH_SOCK=$(lsof -U 2>/dev/null | grep ssh-agent | awk '{print $NF}' | head -1)
-  ssh-add -L 2>/dev/null | grep -q "PIV" || ssh-add -s /usr/local/lib/libykcs11.dylib
+  #ssh-add -L 2>/dev/null | grep -q "PIV" || ssh-add -s /usr/local/lib/libykcs11.dylib
 fi

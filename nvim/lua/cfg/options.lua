@@ -32,7 +32,7 @@ vim.opt.iskeyword = "@,48-57,192-255" -- don't treat _ separated words as a sing
 vim.opt.termguicolors = true -- enable wider range of colors
 vim.opt.timeout = true -- enable timeout
 vim.opt.timeoutlen = 300 -- timeout length
-vim.opt.autochdir = true -- auto change directory
+vim.opt.autochdir = false -- auto change directory
 vim.opt.shortmess:append("c") -- Short messages option
 vim.opt.whichwrap:append("h,l,<,>,[,]") -- cursor behavior
 vim.g.copilot_no_tab_map = false -- disable tab mapping for copilot
@@ -59,3 +59,9 @@ vim.cmd([[
 vim.opt.grepprg = "rg --vimgrep --smart-case --hidden --glob '!node_modules/**' --glob '!dist/**'"
 
 vim.opt.grepformat = "%f:%l:%c:%m"
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldcolumn = "1"

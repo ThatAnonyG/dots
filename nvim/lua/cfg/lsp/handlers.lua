@@ -43,15 +43,19 @@ M.setup = function()
 	vim.diagnostic.config(config)
 end
 
-local function lsp_highlight_document(client)
+local function lsp_highlight_document(client, bufnr)
 	if client.server_capabilities.documentHighlightProvider then
-		vim.cmd([[
-        augroup lsp_document_highlight
-          autocmd! * <buffer>
-          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        augroup END
-      ]])
+		local group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
+		vim.api.nvim_create_autocmd({ "CursorHold" }, {
+			buffer = bufnr,
+			group = group,
+			callback = vim.lsp.buf.document_highlight,
+		})
+		vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+			buffer = bufnr,
+			group = group,
+			callback = vim.lsp.buf.clear_references,
+		})
 	end
 end
 
@@ -72,7 +76,7 @@ M.lsp_keymaps = function(bufnr)
 		noremap = true,
 		nowait = true,
 		{ "<Leader>l", group = "LSP" },
-		{ "<Leader>li", "<cmd>LspInfo<cr>", desc = "LSP Info" },
+		{ "<Leader>li", "<cmd>checkhealth lsp<cr>", desc = "LSP Info" },
 		{ "<Leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
 		{ "<Leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Open diagnostic" },
 		{
@@ -110,7 +114,7 @@ M.lsp_keymaps = function(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	if client.name == "tsserver" then
+	if client.name == "ts_ls" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
 	if client.name == "lua_ls" then
@@ -123,17 +127,14 @@ M.on_attach = function(client, bufnr)
 	end
 
 	M.lsp_keymaps(bufnr)
-	lsp_highlight_document(client)
+	lsp_highlight_document(client, bufnr)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
--- Do a protected call to check the LSP plugin for the cmp
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-	return
+local status_ok, blink = pcall(require, "blink.cmp")
+if status_ok then
+	M.capabilities = blink.get_lsp_capabilities()
+else
+	M.capabilities = vim.lsp.protocol.make_client_capabilities()
 end
-
-M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M
