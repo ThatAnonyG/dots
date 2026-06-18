@@ -164,3 +164,26 @@ local vmappings = {
 	{ "p", '"_dP' },
 }
 which_key.add(vmappings)
+
+--@type wk.Spec
+local fold_mappings = {
+	mode = "n",
+	silent = true,
+	noremap = true,
+	nowait = true,
+	{
+		"zR",
+		function()
+			require("ufo").openAllFolds()
+		end,
+		desc = "Open all folds",
+	},
+	{
+		"zM",
+		function()
+			require("ufo").closeAllFolds()
+		end,
+		desc = "Close all folds",
+	},
+}
+which_key.add(fold_mappings)

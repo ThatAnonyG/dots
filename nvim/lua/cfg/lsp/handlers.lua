@@ -97,7 +97,16 @@ M.lsp_keymaps = function(bufnr)
 		{ "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
 		{ "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Go to implementation" },
 		{ "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "Go to references" },
-		{ "K", "<cmd>lua vim.lsp.buf.hover({ border = 'rounded' })<CR>", desc = "Hover" },
+		{
+			"K",
+			function()
+				local winid = require("ufo").peekFoldedLinesUnderCursor()
+				if not winid then
+					vim.lsp.buf.hover({ border = "rounded" })
+				end
+			end,
+			desc = "Hover",
+		},
 	}
 
 	which_key.add(leader_mappings)
@@ -136,5 +145,10 @@ if status_ok then
 else
 	M.capabilities = vim.lsp.protocol.make_client_capabilities()
 end
+
+M.capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
 
 return M

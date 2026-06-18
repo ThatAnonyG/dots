@@ -59,9 +59,3 @@ vim.cmd([[
 vim.opt.grepprg = "rg --vimgrep --smart-case --hidden --glob '!node_modules/**' --glob '!dist/**'"
 
 vim.opt.grepformat = "%f:%l:%c:%m"
-
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = true
-vim.opt.foldlevel = 99
-vim.opt.foldcolumn = "1"
