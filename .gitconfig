@@ -3,7 +3,7 @@
 [user]
 	name = Ratul Saha
 	email = contact@ratulsaha.me
-	signingkey = 70663DDFA022DB227346797C537D9513A64EA3D4
+	signingkey = DA04E0377AF801CC
 [core]
   editor = nvim
   pager = delta
