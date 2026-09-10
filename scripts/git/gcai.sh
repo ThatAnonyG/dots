@@ -84,7 +84,18 @@ echo ""
 # ── Call Claude ───────────────────────────────────────────────────────────────
 
 echo "Generating commit message..."
-commit_msg=$(claude -p "$prompt" 2>/dev/null)
+
+set +e
+prompt_flags=(--mcp-config '{"mcpServers":{}}' --strict-mcp-config)
+commit_msg=$(printf '%s' "$prompt" | claude -p "${prompt_flags[@]}" 2>&1)
+claude_exit=$?
+set -e
+
+if [[ $claude_exit -ne 0 ]]; then
+	echo "gcai: Claude CLI failed with exit code $claude_exit." >&2
+	echo "$commit_msg" >&2
+	exit 1
+fi
 
 if [[ -z "$commit_msg" ]]; then
 	echo "gcai: Claude returned an empty message." >&2
@@ -124,7 +135,7 @@ while true; do
 		;;
 	r | R)
 		echo "Regenerating..."
-		commit_msg=$(claude -p "$prompt" 2>/dev/null)
+		commit_msg=$(printf '%s' "$prompt" | claude -p "${prompt_flags[@]}" 2>/dev/null)
 		echo ""
 		echo "┌─ Proposed commit ──────────────────────────────────────────────────────"
 		echo "$commit_msg" | sed 's/^/│ /'

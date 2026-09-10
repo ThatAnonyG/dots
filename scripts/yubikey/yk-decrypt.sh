@@ -5,6 +5,8 @@ IN="$1"
 OUT="$2"
 LIBP11_PATH="/opt/homebrew/Cellar/libp11/0.4.20/lib/ossl-modules"
 
+export PKCS11_MODULE_PATH=/opt/homebrew/lib/libykcs11.dylib
+
 if [ -z "$IN" ] || [ -z "$OUT" ]; then
   echo "Usage: yk-decrypt <input.enc> <output.tar.gz>"
   exit 1
