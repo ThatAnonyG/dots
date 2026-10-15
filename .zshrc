@@ -205,8 +205,13 @@ alias ssofl="aws sso login --sso-session flowace"
 # thefuck
 eval $(thefuck --alias fk)
 
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export SSH_AUTH_SOCK=$(lsof -U 2>/dev/null | grep ssh-agent | awk '{print $NF}' | head -1)
   #ssh-add -L 2>/dev/null | grep -q "PIV" || ssh-add -s /usr/local/lib/libykcs11.dylib
+  complete -C '/opt/homebrew/bin/aws_completer' aws
 fi
+
+export PATH="$PATH:$(go env GOPATH)/bin"

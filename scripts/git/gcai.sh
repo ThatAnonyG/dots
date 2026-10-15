@@ -44,7 +44,8 @@ fi
 
 # ── Build prompt ──────────────────────────────────────────────────────────────
 
-extra_context="${1:-}"
+# Anything after the command
+extra_context="${*:-}"
 
 diff_stat=$(git diff --cached --stat)
 diff_body=$(git diff --cached)
@@ -66,6 +67,7 @@ ${extra_context}}
 Output ONLY the commit message — no explanation, no markdown, no code fences.
 First line: subject (≤72 chars).
 Optionally a blank line followed by a short body.
+Never include the Co-Author trailer or any other metadata.
 Nothing else."
 
 # ── Show diff summary to user ─────────────────────────────────────────────────
