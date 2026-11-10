@@ -215,3 +215,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 export PATH="$PATH:$(go env GOPATH)/bin"
+
+fpath=(/Users/ratulsaha/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
