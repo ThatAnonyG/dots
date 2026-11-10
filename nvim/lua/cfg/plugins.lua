@@ -35,7 +35,7 @@ lazy.setup({
 	"moll/vim-bbye", -- for bufferline
 	"christoomey/vim-tmux-navigator", -- tmux integration
 	"nvim-tree/nvim-web-devicons", -- cool icons
-	{ "nvim-mini/mini.nvim", version = "*" }, -- icons for mini.nvim
+	{ "nvim-mini/mini.nvim", version = "*" }, -- comment, pairs, surround
 	"nvim-lualine/lualine.nvim", -- cool status line
 	"folke/which-key.nvim", -- keybindings
 	"folke/snacks.nvim", -- snacks
@@ -47,7 +47,7 @@ lazy.setup({
 	{
 		"saghen/blink.cmp",
 		build = function()
-			require("blink.cmp").build():wait(60000)
+			require("blink.cmp").build():pwait()
 		end,
 		dependencies = {
 			"saghen/blink.lib",
@@ -91,7 +91,6 @@ lazy.setup({
 	-- Utility Plugins
 	"HiPhish/rainbow-delimiters.nvim", -- rainbow brackets
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- indentation lines
-	"windwp/nvim-autopairs", -- auto close brackets and quotes
 	{
 		"github/copilot.vim",
 		config = function()
